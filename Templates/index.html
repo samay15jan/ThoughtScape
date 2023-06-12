@@ -4,31 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>ThoughtScape</title>
-</head>
-<style>
-    ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 15%;
-  background-color: white;
-  height: 100%; /* Full height */
-  position: fixed; /* Make it stick, even on scroll */
-  overflow: auto; /* Enable scrolling if the sidenav has too much content */
-  box-shadow: 10px 10px 10px #d8d7da;
-  border-radius: 5%;
-}
-body{
-  background-color: #f5f7fb;
-}
-</style>
-<body>
-    <ul><br>
-        <li><a href="">link</a></li>
-      </ul> 
+    <title>ThoughtScape</title> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  </head>
+
+<body id="theme" class="light-theme">
+  <i class="bi bi-sun-fill"></i>
+  <i class="bi bi-moon-fill"></i>
+  <button class="toggle" type="button" onclick="toggletheme()"> i</button>
+  <script src="script.js"></script> 
+
 </body>
 </html>
