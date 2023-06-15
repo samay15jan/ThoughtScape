@@ -8,20 +8,24 @@
     <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/Templates/Journal.html">
   </head>
 
 <body id="theme" class="light-theme">
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
+  <img class="logo" src="/sources/icon_white.jpg">
   <div class="button">
   <button id="toggle1" type="button" style="width: 4%; background-color:transparent ; border: none;" onclick="toggletheme()"> <img id="toggle2" src="/sources/toggle_moon.svg"></button>
   </div>
   <script src="script.js"></script> 
 
+  <ul>
+    <li><a class="active" href="#home">Journal</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="/chat.html">Chat</a></li>
+    <li><a href="#about">Settings</a></li>
+  </ul>
+
+<iframe class="journal_iframe" src="/Templates/Journal.html" title="Journal"></iframe> 
 </body>
 </html>

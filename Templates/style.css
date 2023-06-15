@@ -12,6 +12,12 @@
     margin: 0;
   }
 
+.logo{
+  width: 10%;
+  padding-left: 5%;
+  padding-bottom: 2%;
+}
+
 .toggle{
     background-color: transparent;
   }
@@ -21,13 +27,16 @@
   padding-left: 96%;
 }
 
+.journal_iframe{
+  width: 80%;
+
+}
 
 ul {
   list-style-type: none;
-  margin: 0;
+  margin: 10;
   padding: 0;
   width: 20%;
-  background-color:white;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -36,6 +45,7 @@ ul {
 li a {
   display: block;
   color: #000;
+  margin: 10%;
   text-align: center;
   padding: 8px 16px;
   text-decoration: none;
@@ -46,13 +56,10 @@ li a.active {
   background-color: rgb(82, 82, 159);
   color: white;
   border-radius: 15%;
-
-  
 }
 
 li a:hover:not(.active) {
   background-color: #555;
   color: white;
   border-radius: 15%;
-
 }
