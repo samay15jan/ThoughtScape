@@ -30,5 +30,5 @@ quote(QuotesFile)
 
 // Iframe
 function frame(source) {
-  document.getElementById('frame').src = source;
+  document.getElementById('iframe').src = source;
 }
