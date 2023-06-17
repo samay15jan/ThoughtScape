@@ -24,7 +24,7 @@ async function quote(QuotesFile) {
   const randomline = Math.floor(Math.random() * 250);
   const lines = text.split('\n'); 
   const quote = lines[randomline];
-  document.getElementById("demo").innerHTML = quote;
+  document.getElementById("quote").innerHTML = quote;
 }
 quote(QuotesFile)
 

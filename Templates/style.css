@@ -55,6 +55,17 @@ li a.active {
   width: 15%;
 }
 
+
+/* Journal.html */
+.quote{
+width: 45%;
+background-color: #8bd3dd;
+border: #666666;
+border-style: groove;
+}
+
+
+
 /* LOGIN PAGE
 
  /* Bordered form */
