@@ -7,24 +7,26 @@
     <title>ThoughtScape</title> 
     <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
     <link rel="stylesheet" href="style.css">
-</head>
+    <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+  </head>
 <body id="theme" class="light-theme">
-
-    <img class="logo" src="/sources/icon_white.jpg">
-    <iframe class="Journals" src="/Templates/journal.html"  frameborder="1"></iframe>
-
-  <div class="button">
-    <button id="toggle1" type="button" style="width: 6%; background-color:transparent ; border: none;" onclick="toggletheme()"> <img id="toggle2" src="/sources/toggle_moon.svg"></button>
+  <div class="container1">
+    <div class="row">
+      <center>
+      <img class="logo" src="/sources/icon_white.jpg">
+      <ul class="navbar">
+        <center>
+      <li><a class="active" href="#" onclick="frame('/Templates/journal.html')"><i class='fas fa-book' style='font-size:20px;'></i> Journal</a></li>
+      <li><a href="#" onclick="frame('/Templates/insight.html')"><i class="fa-solid fa-arrow-up-right-dots" style='font-size:20px;'></i> Insights</a></li>
+      <li><a href="#" onclick="frame('/Templates/chill-zone.html')"><i class="fa-solid fa-couch"2 style='font-size:20px;'></i> Chill Zone</a></li>
+      <li><a href="#" onclick="frame('/Templates/settings.html')"><i class="fa-solid fa-gear" style='font-size:20px;'></i> Settings</a></li>
+      </ul></center>
+    </center>
     </div>
+    <iframe class="iframe" src="/Templates/journal.html" allowfullscreen="true" width="100%" height="760px" frameborder="1"></iframe>
+  </div>
+  
 
-
-  <div style="display: flex;"> 
-    <ul class="navbar">
-      <li><a class="active" href="#home">Journal</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="/Templates/app.html">Chat</a></li>
-      <li><a href="#about">Settings</a></li>
-    </ul>
 
 </body>
 <script src="script.js"></script> 

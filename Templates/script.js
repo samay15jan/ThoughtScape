@@ -27,3 +27,8 @@ async function quote(QuotesFile) {
   document.getElementById("demo").innerHTML = quote;
 }
 quote(QuotesFile)
+
+// Iframe
+function frame(source) {
+  document.getElementById('frame').src = source;
+}
