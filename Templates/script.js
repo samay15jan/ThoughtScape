@@ -32,3 +32,8 @@ quote(QuotesFile)
 function frame(source) {
   document.getElementById('iframe').src = source;
 }
+
+// Popup window
+function PopupFrame(expand){
+  document.getElementById('popup-frame').src = expand
+}
