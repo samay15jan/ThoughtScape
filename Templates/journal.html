@@ -10,20 +10,36 @@
     <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
 
 </head>
+<style>
+  .top {
+    display: flex;
+  align-items: center;
+  }
+  .top-items{
+    margin-left: 300px;
+  }
+  .quote{
+width: 45%;
+padding: 5px;
+color: black;
+background-color: white;
+border-radius: 15px;
+box-shadow: 1px 1px 15px 1px grey;
+}
 
+
+</style>
 <body id="theme" class="light-theme">
+
   <center>
-    <div>
-      <p class="quote" id="quote">Quote</p>
+    <div class="top">
+      <p class="quote" id="quote" style="margin-left: 375px;">Quote</p>
+      <a href="#" id="toggle1" class="top-items" style="width: 6%; background-color:transparent ; border: none;" onclick="toggletheme()"><img id="toggle2" src="/sources/toggle_moon.svg"></a>
     </div>
   </center>
 
-  <div>
-    <button id="toggle1" type="button" style="width: 6%; background-color:transparent ; border: none;" onclick="toggletheme()"> <img id="toggle2" src="/sources/toggle_moon.svg"></button>
-  </div>
 
-<a href="#" class="float" onclick="PopupFrame('/Templates/popup-frame.html')"><i class="fa-solid fa-plus"></i></a>
-<iframe id="popup-frame" class="popup-frame" src="" frameborder="1" ></iframe>
+
 </body>
 <script src="script.js"></script>
 </html>

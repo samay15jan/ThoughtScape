@@ -97,6 +97,20 @@ box-shadow: 1px 1px 15px 1px grey;
 }
 
 
+#boot-logo {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
 /* LOGIN PAGE
 
  /* Bordered form */
@@ -171,4 +185,32 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+}
+
+
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+  background: #6246ea;
+  transition: all 0.3s ease;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  color: #fffffe;
+  border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  border: 2px solid #495057;
+}
+
+.fa-plus{
+	margin-top:22px;
+}
+.float:hover {
+  background: #fff;
+  color: #495057;
 }

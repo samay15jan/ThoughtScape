@@ -33,7 +33,19 @@ function frame(source) {
   document.getElementById('iframe').src = source;
 }
 
-// Popup window
-function PopupFrame(expand){
-  document.getElementById('popup-frame').src = expand
+
+// Boot logo
+setTimeout(function() {
+  var bootLogo = document.getElementById('boot-logo');
+  bootLogo.style.display = 'none';
+}, 1000);
+
+function openPopup() {
+  var popup = document.getElementById("popup");
+  popup.style.display = "block";
+}
+
+function closePopup() {
+  var popup = document.getElementById("popup");
+  popup.style.display = "none";
 }
