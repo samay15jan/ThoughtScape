@@ -1,7 +1,7 @@
 /* Theme */
 .light-theme {
   color: black;
-  background-color: #fef6e4;
+  background-color: #d1d1e9;
   overflow-x: hidden;
   margin: 0;
 }
@@ -19,16 +19,21 @@
   display: -webkit-box-flex;
 }
 
-.logo {
+.logo1 {
   width: 50%;
   overflow: hidden;
+}
 
+.logo2 {
+  width: 80%;
+  margin-top: 200%;
+  overflow: hidden;
 }
 
 .navbar {
   list-style-type: none;
   padding: 0;
-  width: 20%;
+  width: 15%;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -37,19 +42,16 @@
 li a {
   display: block;
   color: #666666;
-  width: 45%;
+  width: 60%;
   text-align: center;
   padding: 30px 20px;
   text-decoration: none;
 }
 
 li a.active {
-  color:#f582ae;
+  color:#6246ea;
 }
 
-.button {
-  width: 100%;
-}
 
 .icon{
   width: 15%;
@@ -59,11 +61,40 @@ li a.active {
 /* Journal.html */
 .quote{
 width: 45%;
-background-color: #8bd3dd;
-border: #666666;
-border-style: groove;
+padding: 5px;
+color: black;
+background-color: white;
+border-radius: 15px;
+box-shadow: 1px 1px 15px 1px grey;
 }
 
+
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+  background: #6246ea;
+  transition: all 0.3s ease;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  color: #fffffe;
+  border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  border: 2px solid #495057;
+}
+
+.fa-plus{
+	margin-top:22px;
+}
+.float:hover {
+  background: #fff;
+  color: #495057;
+}
 
 
 /* LOGIN PAGE
