@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThoughtScape</title>
-    <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThoughtScape</title>
+  <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
 
 </head>
 <style>
   .top {
     display: flex;
-  align-items: center;
+    align-items: center;
   }
-  .top-items{
+
+  .top-items {
     margin-left: 300px;
   }
-  .quote{
-width: 45%;
-padding: 5px;
-color: black;
-background-color: white;
-border-radius: 15px;
-box-shadow: 1px 1px 15px 1px grey;
-}
 
-
+  .quote {
+    width: 45%;
+    padding: 5px;
+    color: black;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 1px 1px 15px 1px grey;
+  }
 </style>
+
 <body id="theme" class="light-theme">
 
   <center>
     <div class="top">
       <p class="quote" id="quote" style="margin-left: 375px;">Quote</p>
-      <a href="#" id="toggle1" class="top-items" style="width: 6%; background-color:transparent ; border: none;" onclick="toggletheme()"><img id="toggle2" src="/sources/toggle_moon.svg"></a>
+      <a href="#" id="toggle1" class="top-items" style="width: 6%; background-color:transparent ; border: none;"
+        onclick="toggletheme()"><img id="toggle2" src="/sources/toggle_moon.svg"></a>
     </div>
   </center>
 
+<p id="greet"></p>
 
 
 </body>
 <script src="script.js"></script>
+
 </html>

@@ -49,3 +49,30 @@ function closePopup() {
   var popup = document.getElementById("popup");
   popup.style.display = "none";
 }
+
+
+
+
+
+function handleGoogleOneTapResponse(response) {
+  var credential = response.credential;
+  var idToken = credential.idToken;
+  var decodedToken = JSON.parse(atob(idToken.split('.')[1]));
+  var email = decodedToken.email;
+  var name = decodedToken.name;
+  var picture = decodedToken.picture;
+}
+
+  // Greetings
+  var greetings = document.getElementById("greet");
+  var time = new Date();
+  var hours = time.getHours();
+  if (hours >= 0 && hours < 12){
+    greetings.innerHTML = 'Good Morning,';
+  }
+  else if (hours >= 12 && hours < 18){
+    greetings.innerHTML = 'Good Afternoon,';
+  }
+  else {
+    greetings.innerHTML = 'Good Evening,';
+  }
