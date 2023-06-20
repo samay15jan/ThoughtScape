@@ -1,14 +1,14 @@
 /* Theme */
 .light-theme {
-  color: black;
+  color: #212529;
   background-color: #d1d1e9;
   overflow-x: hidden;
   margin: 0;
 }
 
 .dark-theme {
-  color: white;
-  background-color: #16161a;
+  color: #d1d1e9;
+  background-color: #212529;
   overflow-x: hidden;
   margin: 0;
 }
@@ -65,7 +65,7 @@ padding: 5px;
 color: black;
 background-color: white;
 border-radius: 15px;
-box-shadow: 1px 1px 15px 1px grey;
+box-shadow: 0px 0px 3px 0px grey;
 }
 
 
@@ -130,7 +130,7 @@ input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+button1 {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -141,7 +141,7 @@ button {
 }
 
 /* Add a hover effect for buttons */
-button:hover {
+button1:hover {
   opacity: 0.8;
 }
 

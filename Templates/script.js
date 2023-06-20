@@ -52,8 +52,7 @@ function closePopup() {
 
 
 
-
-
+// Google login
 function handleGoogleOneTapResponse(response) {
   var credential = response.credential;
   var idToken = credential.idToken;
@@ -63,7 +62,7 @@ function handleGoogleOneTapResponse(response) {
   var picture = decodedToken.picture;
 }
 
-  // Greetings
+// Greetings
   var greetings = document.getElementById("greet");
   var time = new Date();
   var hours = time.getHours();
@@ -75,4 +74,8 @@ function handleGoogleOneTapResponse(response) {
   }
   else {
     greetings.innerHTML = 'Good Evening,';
+  }
+
+  function todayDate(){
+    
   }
