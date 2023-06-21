@@ -76,6 +76,4 @@ function handleGoogleOneTapResponse(response) {
     greetings.innerHTML = 'Good Evening,';
   }
 
-  function todayDate(){
-    
-  }
+
