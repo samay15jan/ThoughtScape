@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThoughtScape</title> 
+  <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
+  <link rel="stylesheet" href="/Templates/authentication/authentication.css">
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="/config/firebase.js"></script>
+</head>
+<body>
+<center>
+  <div class="container">
+  <img class="logo" src="/sources/icon.jpg" alt="">
+
+  <h4>Register a new account</h4>
+  <form id="register-form">
+    <p style="margin-right: 250px;"></p><br>
+    <input class="box" type="email" placeholder="Email" id="register-email" required><hr><br><br><br>
+    <input class="box" type="password" id="register-password" placeholder="Password" required> <hr> <br><br><br><br>
+    <button class="css-button-shadow-border--grey" type="submit">Create Account</button>
+  </form><br><br>
+  </div>
+</center>
+<script src="/config/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+.logo{
+    width: 100px;
+  }
+  .css-button-shadow-border--grey {
+  min-width: 150px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 50px;
+  border: none;
+  box-shadow:inset 0px 1px 1px 0px;
+  width: 150px;
+  }
+  .css-button-shadow-border--grey {
+  min-width: 130px;
+  height: 50px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 50px;
+  border: none;
+  box-shadow:inset 0px 1px 1px 0px rgba(255,255,255,.5), 1px 1px 2px 0px rgba(0,0,0,.1), 1px 1px 1px 0px rgba(0,0,0,.1);
+  background: #6246ea;
+  width: 300px;
+}
+.css-button-shadow-border--grey:hover {
+  background-color: #6c757d;
+}
+.css-button-shadow-border--grey:active {
+  top: 2px;
+}
+
+.box{
+  background-color: transparent;
+    outline: none;
+    outline-style: none;
+    border: none;
+    resize: none;
+    font-size: 20px;
+    width: 325px;
+  }
+.box:focus {
+  outline: none;
+}
+
+body{
+  margin: 100px;
+  background-color:#495057;
+  margin-top: 50px; 
+  margin-bottom: 50px;
+  background-color: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+  display: flexbox;
+  width: 30%;
+  padding: 20px;
+  box-shadow:inset 1px 1px 10px 0px rgba(255,255,255,.5), 1px 1px 20px 0px rgba(0,0,0,.1), 1px 1px 10px 0px rgba(0,0,0,.1);
+  background-color:white;
+  border-radius: 10px;
+}
