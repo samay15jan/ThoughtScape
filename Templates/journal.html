@@ -8,15 +8,16 @@
   <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"></script>    
+  <script src="/config/firebase.js"></script>
 </head>
 <script>
   import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
-  // ...
-  // The value of `databaseURL` depends on the location of the database
+
   const firebaseConfig = {
       apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
       authDomain: "thoughtscape.firebaseapp.com",
@@ -69,8 +70,27 @@ const database = getDatabase(app);
   </center>
 <H2>Journal</H2>
 <p id="greet"></p>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, voluptas! Ducimus doloribus atque, ratione, distinctio quam, rerum assumenda nemo quaerat quos dolorem accusamus! Harum laudantium perferendis exercitationem quaerat alias praesentium.lore Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius officia reiciendis temporibus laborum exercitationem aspernatur dolor eaque optio impedit assumenda minima animi, ullam illum iusto delectus nobis aut? Provident, esse?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, animi minus porro, nam asperiores sint pariatur culpa accusantium incidunt, veritatis reprehenderit! Ad assumenda iste neque animi, quasi alias saepe odit?
+<p id="output1"></p>
+<p id="output2"></p>
 
+<script>
+var db = firebase.firestore();
+var userId = localStorage.getItem('userId');
+db.collection("users").doc(userId).collection("entries").get()
+  .then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+      var entry = doc.data();
+      var location1 = document.getElementById("output1");
+      var location2 = document.getElementById("output2");
+
+      location1.innerHTML = ("Journal entry title: ", entry.title);
+      location2.innerHTML = console.log("Journal entry content: ", entry.content);
+    });
+  })
+  .catch(function(error) {
+    console.error("Error getting user entries: ", error);
+  });
+</script>
 </body>
 <script src="script.js"></script>
 

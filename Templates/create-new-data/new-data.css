@@ -1,0 +1,120 @@
+.top {
+    display: flex;
+    align-items: center;
+  }
+
+  .top-items {
+    margin-left: 600px;
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+  }
+
+  .bottom-items {
+    margin-left: 1080px;
+  }
+
+  .img {
+    width: 10%;
+    margin-left: 650px;
+    padding: 5px;
+    color: black;
+    border-radius: 15px;
+  }
+
+  .textarea {
+    border: none;
+    resize: none;
+    background-color: transparent;
+    font-size: 20px;
+  }
+  textarea:focus {
+  outline: none;
+}
+.light-theme {
+  color: black;
+  background-color: #d1d1e9;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.dark-theme {
+  color: white;
+  background-color: #16161a;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.css-button-sliding-to-top--black1 {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: transparent;
+  overflow: hidden;
+  border: 2px solid #212529;
+  color: #212529;
+}
+.css-button-sliding-to-top--black1:hover {
+  color: #fff;
+}
+.css-button-sliding-to-top--black1:hover:after {
+  height: 100%;
+}
+.css-button-sliding-to-top--black1:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background: #212529;
+}
+
+.css-button-sliding-to-top--black2 {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: transparent;
+  overflow: hidden;
+  border: 2px solid #d1d1e9;
+  color: #d1d1e9;
+}
+.css-button-sliding-to-top--black2:hover {
+  color: #212529;
+}
+.css-button-sliding-to-top--black2:hover:after {
+  height: 100%;
+}
+.css-button-sliding-to-top--black2:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background: #d1d1e9;
+}

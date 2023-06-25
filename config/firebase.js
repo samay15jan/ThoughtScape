@@ -1,3 +1,6 @@
+import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+
 const firebaseConfig = {
     apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
     authDomain: "thoughtscape.firebaseapp.com",
@@ -9,3 +12,4 @@ const firebaseConfig = {
     measurementId: "G-VHY3SZK6FN"
   };
   firebase.initializeApp(firebaseConfig);  
+  

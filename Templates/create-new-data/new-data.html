@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThoughtScape</title>
+    <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
+    <link rel="stylesheet" href="/Templates/create-new-data/new-data.css">
+    <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body id="theme" class="light-theme">
+    <script src="/config/firebase.js"></script>
+    <center>
+        
+        <div class="top">
+            <img src="/sources/icon.jpg" class="img" alt="">
+            <a href="#" id="toggle1" class="top-items" style="width: 6%; background-color:transparent ; border: none;" onclick="toggletheme()"><img id="toggle2" src="/sources/toggle_moon.svg"></a>
+        </div>
+        <p id="output"></p>
+
+        <textarea id="title" class="textarea" name="inputbox" style="color: #212529;" placeholder="Title" cols="60" rows="2" autofocus required></textarea>
+        <textarea id="area" class="textarea" name="inputbox" style="color: #212529;" placeholder="Hi (user), what's on your mind ? " cols="60" rows="19" autofocus></textarea>
+    </center>
+    
+    <div class="bottom">
+        <button id="buttons1" style="margin: 3px;" class="bottom-items css-button-sliding-to-top--black1">AI Response</button>
+        <button id="buttons2" onclick="save()" class="bottom-items css-button-sliding-to-top--black1">Save</button>
+    </div>
+    <script src="/config/new-data.js"></script>
+</body>
+</html>
