@@ -8,56 +8,10 @@
   <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"></script>    
-  <script src="/config/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="/Templates/journal.css">
 </head>
-<script>
-  import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
-
-
-  const firebaseConfig = {
-      apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
-      authDomain: "thoughtscape.firebaseapp.com",
-      databaseURL: "https://thoughtscape-default-rtdb.firebaseio.com",
-      projectId: "thoughtscape",
-storageBucket: "thoughtscape.appspot.com",
-messagingSenderId: "446236101890",
-appId: "1:446236101890:web:496f25d21ea3703cf0861b",
-measurementId: "G-VHY3SZK6FN",
-databaseURL: "https://thoughtscape-default-rtdb.firebaseio.com/"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-
-// Initialize Realtime Database and get a reference to the service
-const database = getDatabase(app);
-
-
-</script>
-<style>
-  .top {
-    display: flex;
-    align-items: center;
-  }
-
-  .top-items {
-    margin-left: 300px;
-  }
-
-  .quote {
-    width: 45%;
-    padding: 5px;
-    color: black;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0px 0px 3px 0px grey;
-  }
-</style>
 
 <body id="theme" class="light-theme">
 
@@ -70,28 +24,10 @@ const database = getDatabase(app);
   </center>
 <H2>Journal</H2>
 <p id="greet"></p>
-<p id="output1"></p>
-<p id="output2"></p>
+<center>
+<div  id="titles-container"></div>
+</center>
 
-<script>
-var db = firebase.firestore();
-var userId = localStorage.getItem('userId');
-db.collection("users").doc(userId).collection("entries").get()
-  .then(function(querySnapshot) {
-    querySnapshot.forEach(function(doc) {
-      var entry = doc.data();
-      var location1 = document.getElementById("output1");
-      var location2 = document.getElementById("output2");
-
-      location1.innerHTML = ("Journal entry title: ", entry.title);
-      location2.innerHTML = console.log("Journal entry content: ", entry.content);
-    });
-  })
-  .catch(function(error) {
-    console.error("Error getting user entries: ", error);
-  });
-</script>
+<script src="/config/get-data.js"></script>
 </body>
-<script src="script.js"></script>
-
 </html>

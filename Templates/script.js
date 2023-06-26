@@ -52,15 +52,6 @@ function closePopup() {
 
 
 
-// Google login
-function handleGoogleOneTapResponse(response) {
-  var credential = response.credential;
-  var idToken = credential.idToken;
-  var decodedToken = JSON.parse(atob(idToken.split('.')[1]));
-  var email = decodedToken.email;
-  var name = decodedToken.name;
-  var picture = decodedToken.picture;
-}
 
 // Greetings
   var greetings = document.getElementById("greet");
