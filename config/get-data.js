@@ -24,25 +24,31 @@ function getData() {
         var data = doc.data();
         var title = doc.id;
         var content = data.content;
-        // Create elements to display title and content
+        var response = data.response;
+
         var titleElement = document.createElement("h5");
         titleElement.className = "rightportion";
         titleElement.textContent = title;
 
         var contentElement = document.createElement("p");
-        content.className = "rightportion";
+        contentElement.className = "rightportion";
         contentElement.textContent = content;
+        
+        var responseElement = document.createElement("div");
+        responseElement.className = "rightportion";
+        responseElement.textContent = response;
 
         // Append elements to a container
         var container = document.createElement("div");
         container.className = "rightportion";
         container.appendChild(titleElement);
         container.appendChild(contentElement);
+        container.appendChild(responseElement);
 
         // Append container to a parent element
         var parentElement = document.createElement("titles-container");
         parentElement.className = "content";
-        parentElement.style = "margin: 20px;";
+        parentElement.style = "margin: 20px; box-shadow: 0px 0px 3px 0px grey;";
         parentElement.appendChild(container);
 
         var finalparentElement = document.getElementById("titles-container");

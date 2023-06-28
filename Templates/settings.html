@@ -8,7 +8,6 @@
     <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <style>
     .top {
@@ -39,25 +38,14 @@
           onclick="toggletheme()"><img id="toggle2" src="/sources/toggle_moon.svg"></a>
       </div>
     </center>
-    
-    <div id="g_id_onload"
-    data-client_id="thoughtscape"
-    data-context="signin"
-    data-ux_mode="popup"
-    data-callback="http://localhost:5500/callback"
-    data-auto_select="true"
-    data-itp_support="true">
-</div>
-
-<div class="g_id_signin"
-    data-type="standard"
-    data-shape="pill"
-    data-theme="outline"
-    data-text="signin_with"
-    data-size="large"
-    data-logo_alignment="center"
-    data-width="50">
-</div>
+ <h2>Settings</h2>
+ <h4>Your Account</h4>
+<div id="email"></div>
 </body>
-<script src="script.js"></script>
+<script src="/config/common.js"></script>
+<script>
+  var userId = localStorage.getItem('userId');
+  var loc = document.getElementById('email');
+  loc.innerHTML = userId;
+</script>
 </html>

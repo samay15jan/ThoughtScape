@@ -17,6 +17,11 @@ var db = firebase.firestore();
 function save() {
   var title = document.getElementById("title").value;
   var content = document.getElementById("area").value;
+  var ai = document.getElementById("center");
+  var divContent = "";
+  if (ai !== null) {
+    divContent = ai.textContent;
+  }
   var userId = localStorage.getItem('userId');
 
   db.collection("users")
@@ -24,7 +29,8 @@ function save() {
     .collection("Titles")
     .doc(title)
     .set({
-      content: content
+      content: content,
+      response: divContent
     })
     .then(function() {
       var output = document.getElementById("output");
