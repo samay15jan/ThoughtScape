@@ -24,19 +24,21 @@ function save() {
   var content = document.getElementById("area").value;
   var ai = document.getElementById("center");
   var userId = localStorage.getItem('userId');
+  var date = new Date();
   var divContent = "";
   if (ai !== null) {
     divContent = ai.textContent;
   }
 
-  db.collection("users")
+  db.collection("Entries")
     .doc(userId)
-    .collection("Journals")
-    .doc(outputDate)
+    .collection("Journal")
+    .doc()
     .set({
       A_Title: title,
       B_Content: content,
-      C_Response: divContent
+      C_Response: divContent,
+      D_Date: date
     })
     .then(function() {
       var output = document.getElementById("output");

@@ -13,21 +13,24 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 var userId = localStorage.getItem('userId');
-var date = "Jun 29";
 function getData() {
-  db.collection("users")
+  db.collection("Entries")
     .doc(userId)
-    .collection("Journals")
+    .collection("Journal")
     .get()
-    .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-        var date = doc.data();
-        
-        var A_title = data.A_title;
-        var B_content = data.B_content;
-        var C_response = data.C_response;
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const entryData = doc.data();
+        var A_title = entryData.A_Title;
+        var B_content = entryData.B_Content;
+        var C_response = entryData.C_Response;
+        var D_date = entryData.D_Date.toDate();
 
-        var titleElement = document.createElement("h5");
+        var dateElement = document.createElement("div");
+        dateElement.className = "rightportion";
+        dateElement.textContent = D_date;
+
+        var titleElement = document.createElement("H4");
         titleElement.className = "rightportion";
         titleElement.textContent = A_title;
 
@@ -44,8 +47,9 @@ function getData() {
         container.appendChild(titleElement);
         container.appendChild(contentElement);
         container.appendChild(responseElement);
+        container.appendChild(dateElement);
 
-        var parentElement = document.createElement("titles-container");
+        var parentElement = document.createElement("div");
         parentElement.className = "content";
         parentElement.style = "margin: 20px; box-shadow: 0px 0px 3px 0px grey;";
         parentElement.appendChild(container);
