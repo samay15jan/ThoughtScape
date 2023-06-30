@@ -13,39 +13,38 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 var userId = localStorage.getItem('userId');
-
+var date = "Jun 29";
 function getData() {
   db.collection("users")
     .doc(userId)
-    .collection("Titles")
+    .collection("Journals")
     .get()
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-        var data = doc.data();
-        var title = doc.id;
-        var content = data.content;
-        var response = data.response;
+        var date = doc.data();
+        
+        var A_title = data.A_title;
+        var B_content = data.B_content;
+        var C_response = data.C_response;
 
         var titleElement = document.createElement("h5");
         titleElement.className = "rightportion";
-        titleElement.textContent = title;
+        titleElement.textContent = A_title;
 
         var contentElement = document.createElement("p");
         contentElement.className = "rightportion";
-        contentElement.textContent = content;
+        contentElement.textContent = B_content;
         
         var responseElement = document.createElement("div");
         responseElement.className = "rightportion";
-        responseElement.textContent = response;
+        responseElement.textContent = C_response;
 
-        // Append elements to a container
         var container = document.createElement("div");
         container.className = "rightportion";
         container.appendChild(titleElement);
         container.appendChild(contentElement);
         container.appendChild(responseElement);
 
-        // Append container to a parent element
         var parentElement = document.createElement("titles-container");
         parentElement.className = "content";
         parentElement.style = "margin: 20px; box-shadow: 0px 0px 3px 0px grey;";
@@ -53,9 +52,7 @@ function getData() {
 
         var finalparentElement = document.getElementById("titles-container");
         finalparentElement.className = "parent-content";
-        finalparentElement.appendChild(parentElement);
-
-        
+        finalparentElement.appendChild(parentElement);      
       });
     })
     .catch(function(error) {

@@ -1,3 +1,4 @@
+// Firebase Initialization
 const firebaseConfig = {
   apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
   authDomain: "thoughtscape.firebaseapp.com",
@@ -9,28 +10,27 @@ const firebaseConfig = {
   measurementId: "G-VHY3SZK6FN"
 };
 firebase.initializeApp(firebaseConfig); 
-    document.getElementById('register-form').addEventListener('submit', function(event) {
+
+// Register
+document.getElementById('register-form').addEventListener('submit', function(event) {
         event.preventDefault();
-  
         var email = document.getElementById('register-email').value;
         var password = document.getElementById('register-password').value;
-  
+        var output = document.getElementById('output');
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .then(function(userCredential) {
-            // Registration successful, email verification sent
             var user = userCredential.user;
             user.sendEmailVerification().then(function() {
-              // Email verification sent
-              alert('Registration successful. Verification email sent.');
+              output.innerHTML = 'Verification email sent. Redirecting...';
+              location.href = ("/pages/login.html")
             }).catch(function(error) {
-              // An error happened
+              output.innerHTML = 'An error has occurred. Check logs';
               console.error(error);
             });
           })
           .catch(function(error) {
-            // Registration failed
+            output.innerHTML = 'An error has occurred. Check logs';
             console.error(error);
           });
       });
-
-  
+    

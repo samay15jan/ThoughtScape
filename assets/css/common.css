@@ -37,6 +37,7 @@
   position: fixed;
   height: 100%;
   overflow: auto;
+  background-color: white;
 }
 
 li a {
@@ -48,10 +49,9 @@ li a {
   text-decoration: none;
 }
 
-li a.active {
+li a:hover {
   color:#6246ea;
 }
-
 
 .icon{
   width: 15%;

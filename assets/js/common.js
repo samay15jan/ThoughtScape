@@ -6,17 +6,17 @@ function toggletheme(){
   if (x.className === 'light-theme'){
     x.className = 'dark-theme';
     y.style = ' width: 4%; color:white; background-color: transparent; border: none;';
-    z.src = '/sources/toggle_sun.svg'
+    z.src = '/assets/images/toggle-sun.svg'
   }
   else {
     x.className = 'light-theme';
     y.style = 'width: 4%; color:black; background-color: transparent; border: none;';
-    z.src = '/sources/toggle_moon.svg'
+    z.src = '/assets/images/toggle-moon.svg'
   }
 }
 
 // Random Quote
-const QuotesFile = "/sources/quotes.txt";
+const QuotesFile = "/resources/quotes.txt";
 
 async function quote(QuotesFile) {
   const response = await fetch(QuotesFile);

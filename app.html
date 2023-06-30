@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThoughtScape</title> 
+    <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+  </head>
+<body id="theme" class="light-theme" style="background-color: #fffffe">
+  <div id="boot-logo">
+    <video autoplay muted loop id="boot-video">
+        <source src="/resources/boot.mp4" type="video/mp4">
+    </video>
+</div>
+  <div class="container1">
+    <div class="row">
+      <center><br>
+        <img class="logo1" src="/assets/images/logo.png"><br><br>
+        <ul class="navbar">
+          <li><a href="#" onclick="frame('/pages/journal.html')"><i class='fas fa-book' style='font-size:20px;'></i> Journal</a></li>
+          <li><a href="#" onclick="frame('/pages/insight.html')"><i class="fa-solid fa-arrow-up-right-dots" style='font-size:20px;'></i> Insights</a></li>
+          <li><a href="#" onclick="frame('/pages/chill-zone.html')"><i class="fa-solid fa-couch"2 style='font-size:20px;'></i> Chill Zone</a></li>
+          <li><a href="#" onclick="frame('/pages/settings.html')"><i class="fa-solid fa-gear" style='font-size:20px;'></i> Settings</a></li>
+
+        </ul>
+        <img class="logo2" src="/assets/images/logo-long.png">
+      </center>
+    </div>
+  <iframe id="iframe" class="iframe" src="/pages/journal.html" allowfullscreen="true" width="3000" height="645px" frameborder="0"></iframe>
+  <a href="/pages/new-data.html" class="float"><i class="fa-solid fa-plus"></i></a>
+
+</body>
+<script src="/assets/js/common.js"></script> 
+
+</html>

@@ -13,7 +13,7 @@ function toggletheme(){
     v.style = 'color: #d1d1e9;';
     w.style = 'color: #d1d1e9;';
     x.className = 'dark-theme';
-    y.style = ' width: 6%; color:white; background-color: transparent; border: none;';
+    y.style = ' width: 3%; color:white; background-color: transparent; border: none;';
     z.src = '/sources/toggle_sun.svg'
   }
   else {
@@ -22,7 +22,7 @@ function toggletheme(){
     v.style = 'color: #212529;';
     w.style = 'color: #212529;';
     x.className = 'light-theme';
-    y.style = 'width: 6%; color:black; background-color: transparent; border: none;';
+    y.style = 'width: 3%; color:black; background-color: transparent; border: none;';
     z.src = '/sources/toggle_moon.svg'
   }
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThoughtScape</title> 
+  <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
+  <link rel="stylesheet" href="/assets/css/authentication.css">
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+</head>
+<body>
+<center>
+  <div class="container">
+    <img class="logo" src="/assets/images/logo.png" alt="ThoughtScape: Unleash Your Passion">
+    <h4>Welcome to ThoughtScape</h4>
+    <form id="login-form">
+      <p style="margin-right: 250px;"></p><br>
+      <input class="input-box" type="email" placeholder="Email" id="login-email"required><hr><br><br><br>
+      <input class="input-box" type="password" id="login-password" placeholder="Password" required> <hr><br><br>
+      <p id="output"></p>
+      <button class="button" type="submit">Login</button>
+    </form><br><br>
+    <p style="color: #6c757d;">Don’t have an account? <a href="/pages/signup.html" style="color: black;">Sign Up </a></p>
+  </div>
+</center>
+<script src="/assets/js/auth-login.js"></script>
+</body>
+</html>
