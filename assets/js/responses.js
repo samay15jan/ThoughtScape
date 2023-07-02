@@ -6,7 +6,7 @@ async function response() {
   
     const requestBody = {
       model: 'gpt-3.5-turbo',
-      messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: input }],
+      messages: [{ role: 'system', content: 'You Elena, an ai assistant who helps users by providing solutions for everyday problems.' }, { role: 'user', content: input }],
       temperature: 0.5,
       max_tokens: 500,
       top_p: 1,

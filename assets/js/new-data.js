@@ -13,22 +13,16 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-  var d = new Date();
-  var month = months[d.getMonth()];
-  var date = d.getDate();
-  var outputDate = month + " " + date;
+
+const currentDate = new Date();
+const day = currentDate.getDate();
+const month = currentDate.toLocaleString('default', { month: 'long' });
+const formattedDate = `${day} ${month}`;
 
 function save() {
   var title = document.getElementById("title").value;
   var content = document.getElementById("area").value;
-  var ai = document.getElementById("center");
   var userId = localStorage.getItem('userId');
-  var date = new Date();
-  var divContent = "";
-  if (ai !== null) {
-    divContent = ai.textContent;
-  }
 
   db.collection("Entries")
     .doc(userId)
@@ -37,8 +31,7 @@ function save() {
     .set({
       A_Title: title,
       B_Content: content,
-      C_Response: divContent,
-      D_Date: date
+      D_Date: formattedDate
     })
     .then(function() {
       var output = document.getElementById("output");

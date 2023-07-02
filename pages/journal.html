@@ -12,19 +12,32 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <link rel="stylesheet" href="/assets/css/journal.css">
 </head>
-<body id="theme" class="light-theme" style="background-image: url(/assets/images/bg.png); background-repeat: no-repeat; background-size: cover;">
-
+<body id="theme" class="light-theme" style="">
+  
   <center>
     <div class="top">
       <p class="quote" id="quote" style="margin-left: 375px;">Quote</p>
       <a href="#" id="toggle1" class="top-items" style="width: 4%; background-color:transparent ; border: none;" onclick="toggletheme()"><img id="toggle2" src="/assets/images/toggle-moon.svg"></a>
     </div>
   </center>
-<H2>Journal</H2>
-<p id="greet"></p>
+
+<H2 style="margin-left: 150px;">Journal</H2>
+<p style="margin-left: 150px;" id="greet"></p>
+
 <center>
-<div style="color: black;" id="titles-container"></div>
+  <div id="titles-container"></div>
 </center>
+
+
+<div id="overlay"><br>
+  <button class="exit-button"  onclick="off()"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #fffffe;"></i></i></button>
+  <center>
+    <div class="text-container">
+      <div style="margin-top: 10px;" id="text"></div>
+    </div>
+</center>
+</div>
+
 <script src="/assets/js/get-data.js"></script>
 <script src="/assets/js/common.js"></script>
 </body>
