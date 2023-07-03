@@ -1,10 +1,10 @@
 /* Theme */
 .light-theme {
   color: #212529;
-  background-color: #d1d1e9;
+  background-color:transparent;
   overflow-x: hidden;
   margin: 0;
-  background-image: url(/assets/images/bg-light.png);
+  background-image: white;
   background-repeat: no-repeat; 
   background-size: cover;
 }
@@ -28,22 +28,26 @@
 .logo1 {
   width: 50%;
   overflow: hidden;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  margin: 0;
 }
 
 .logo2 {
   width: 90%;
-  margin-top: 200%;
+  padding-top: 50px;
   overflow: hidden;
+  margin: 0;
 }
 
 .navbar {
-  margin-left: 0px;
   list-style-type: none;
+  margin: 0;
   padding: 0;
   width: 15%;
   position: fixed;
-  height: 60%;
-  overflow: auto;
+  height: 100%;
+  overflow: hidden;
   background-color: white;
 }
 
@@ -60,6 +64,23 @@ li a:hover {
   color:#6246ea;
 }
 
+
+.iframe{
+  margin-left: 200px;
+  
+  width: 1150px;
+  height: 625px;
+}
+
+
+@media screen and (max-width: 700px) {
+
+}
+
+
+
+
+
 .icon{
   width: 15%;
 }
@@ -67,14 +88,11 @@ li a:hover {
 
 /* Journal.html */
 .quote{
-width: 45%;
-padding: 5px;
-color: black;
-background-color: white;
+margin-left: 335px;
+width: 50%;
 border-radius: 15px;
 box-shadow: 0px 0px 3px 0px grey;
 }
-
 
 
 .float{
@@ -118,4 +136,24 @@ video {
   height: auto;
 }
 
+
+.top {
+  display: flex;
+  align-items: center;
+}
+
+
+.top-items {
+  margin-left: 300px;
+}
+
+
+.quote {
+  width: 45%;
+  padding: 5px;
+  color: black;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 3px 0px grey;
+}
 
