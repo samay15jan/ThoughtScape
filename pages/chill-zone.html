@@ -4,42 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThoughtScape</title>
-    <link rel="icon" href="/sources/icon.jpg" type="image/icon type">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/chill-zone.css">
     <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+    <script src="/assets/js/chill-zone.js"></script>
+
 </head>
-<style>
-    .top {
-      display: flex;
-      align-items: center;
-    }
-  
-    .top-items {
-      margin-left: 300px;
-    }
-  
-    .quote {
-      width: 45%;
-      padding: 5px;
-      color: black;
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 1px 1px 15px 1px grey;
-    }
-  </style>
   
   <body id="theme" class="light-theme">
   
     <center>
       <div class="top">
-        <p class="quote" id="quote" style="margin-left: 375px;">Quote</p>
-        <a href="#" id="toggle1" class="top-items" style="width: 6%; background-color:transparent ; border: none;"
-          onclick="toggletheme()"><img id="toggle2" src="/sources/toggle_moon.svg"></a>
+        <p class="quote" id="quote" >Quote</p>
       </div>
     </center>
-    
-    <iframe src="https://www5.cbox.ws/box/?boxid=944413&boxtag=77DKGn" style="background-color: black;" width="30%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
 
+      <div id="content" class="content" onclick="on()">Live Chat </div>
+        <div id="overlay">
+          <button class="exit-button" onclick="off()"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #fffffe;"></i></button>
+          <div style="margin: 100px;">
+            <center>
+          <iframe class="cbox" src="https://www5.cbox.ws/box/?boxid=944413&boxtag=77DKGn" style="background-color: white;"  width="50%" height="500" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>
+        </center>
+        </div>
+        </div>
+        
+        <div id="content" class="content">Useful resources
+            <ul>
+              <li><a href="https://insighttimer.com/"target="_blank">Insight Timer</a></li>
+              <li><a href="https://meditofoundation.org/meditations"target="_blank">Medito </a></li></a>
+              <li><a href="https://www.youtube.com/@NicholasGarofola"target="_blank">Nicholas Garofola</a></li>
+              <li><a href="https://www.youtube.com/c/MattDAvella/"target="_blank">Matt D'Avella</a></li>
+              <li><a href="https://markmanson.net/books/subtle-art"target="_blank">The Subtle Art OF Not Giving A Fu*k</a></li>
+              <li><a href="https://jamesclear.com/atomic-habits"target="_blank">Atomic Habits</a></li>
+              <li><a href="https://julianbrass.com/book/"target="_blank">Own Your Anxiety</a></li>
+              <li><a href="https://jensincero.com/">You Are A Badass</a></li> 
+            </ul>
+        </div>
+      </div>
+  </div>
+    </div>
+    <script src="/assets/js/common.js"></script>
 </body>
-<script src="script.js"></script>
+
 </html>
