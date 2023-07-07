@@ -24,6 +24,7 @@ function getData() {
   db.collection("Entries")
     .doc(userId)
     .collection("Journal")
+    .orderBy("D_Date", "desc")
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {

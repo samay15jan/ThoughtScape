@@ -1,0 +1,37 @@
+var userId = localStorage.getItem('userId');
+var loc = document.getElementById('email');
+loc.innerHTML = userId;
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
+    authDomain: "thoughtscape.firebaseapp.com",
+    databaseURL: "https://thoughtscape-default-rtdb.firebaseio.com",
+    projectId: "thoughtscape",
+    storageBucket: "thoughtscape.appspot.com",
+    messagingSenderId: "446236101890",
+    appId: "1:446236101890:web:496f25d21ea3703cf0861b",
+    measurementId: "G-VHY3SZK6FN"
+  };
+  
+  firebase.initializeApp(firebaseConfig);
+  
+  var db = firebase.firestore();
+  var userId = localStorage.getItem('userId');
+  
+  // Total Entries
+  function getCount() {
+    db.collection("Entries")
+      .doc(userId)
+      .collection("Journal")
+      .get()
+      .then((querySnapshot) => {
+        var count = querySnapshot.size;
+        var output = document.getElementById("count");
+        output.innerHTML = "Total Number Of Entries: " + count;
+      })
+      .catch(function (error) {
+        console.error("Error getting documents: ", error);
+      });
+  }
+  
+  getCount();

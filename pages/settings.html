@@ -8,44 +8,20 @@
     <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
     <link rel="stylesheet" href="/assets/css/common.css">
     <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 </head>
-<style>
-    .top {
-      display: flex;
-      align-items: center;
-    }
-  
-    .top-items {
-      margin-left: 300px;
-    }
-  
-    .quote {
-      width: 45%;
-      padding: 5px;
-      color: black;
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 1px 1px 15px 1px grey;
-    }
-  </style>
-  
   <body id="theme" class="light-theme">
-  
     <center>
       <div class="top">
         <p class="quote" id="quote" style="margin-left: 375px;">Quote</p>
-        <a href="#" id="toggle1" class="top-items" style="width: 6%; background-color:transparent ; border: none;"
-          onclick="toggletheme()"><img id="toggle2" src="/assets/images/toggle-moon.svg"></a>
       </div>
     </center>
  <h2>Settings</h2>
  <h4>Your Account</h4>
 <div id="email"></div>
-</body>
+<div id="count"></div>
+<script src="/assets/js/settings.js"></script>
 <script src="/assets/js/common.js"></script>
-<script>
-  var userId = localStorage.getItem('userId');
-  var loc = document.getElementById('email');
-  loc.innerHTML = userId;
-</script>
+</body>
 </html>
