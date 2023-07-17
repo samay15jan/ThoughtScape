@@ -55,16 +55,17 @@ function closePopup() {
 
 // Greetings
   var greetings = document.getElementById("greet");
+  var UserName = localStorage.getItem('username');
   var time = new Date();
   var hours = time.getHours();
   if (hours >= 0 && hours < 12){
-    greetings.innerHTML = 'Good Morning';
+    greetings.innerHTML = 'Good Morning, ' + UserName;
   }
   else if (hours >= 12 && hours < 18){
-    greetings.innerHTML = 'Good Afternoon';
+    greetings.innerHTML = 'Good Afternoon, ' + UserName;
   }
   else {
-    greetings.innerHTML = 'Good Evening';
+    greetings.innerHTML = 'Good Evening, ' + UserName;
   }
 
 

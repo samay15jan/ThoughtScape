@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
   <body id="theme" class="light-theme">
     <center>
@@ -21,35 +22,27 @@
 
 <div style="margin-left: 150px;">
   <h2>Settings</h2>
-  <div id="completeProfile"></div>
+    <div id="completeProfile"></div>
   <h4>Your Account</h4> 
-    <div id="avatar"></div>
-    <div id="username"></div>
+    <div id="usernameLoc"></div>
     <div id="email"></div>
-    <div id="theme"></div>
+    <div id="count"></div>
+  <h4>Email Alerts</h4>
     <div id="emailAlerts"></div>
-    <H4>Preferences</H4>
-    <h6>Appearence</h6>
-    <h4>Notification</h4>
-    <button onclick="signOut()">SignOut</button>
+  <h4>Our Story <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></h4>
+  <h4>Feedback and Support</h4>
+  <form method="post">
+    <textarea name="input-box" id="input-box" placeholder="Feel free to ask anything. We'll respond ASAP." cols="50" rows="5" spellcheck="false"></textarea><br>
+    <input type="button" id="button" value="Send" onclick="sendmail()" />
+  </form><br>
+Terms of Service 
+Privacy Policy 
+Data Usage 
+Storage Information 
 
-<div id="count"></div>
-
-
-<h4>Share</h4>
-<h6>Share ThoughtScape </h6>
-
-<h4>Our Story</h4>
-
-<h4>Danger Zone</h4>
-<button onclick="deleteAccount()">Delete Account</button>
-<button onclick="passwordReset()">Reset Password</button>
-</div>
-
-
-
-
-<script src="/assets/js/settings.js"></script>
 <script src="/assets/js/common.js"></script>
+<script src="/assets/js/settings.js"></script>
+<script src="/assets/js/emails.js"></script>
+
 </body>
 </html>

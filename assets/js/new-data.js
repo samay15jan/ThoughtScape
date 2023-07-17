@@ -19,6 +19,14 @@ const day = currentDate.getDate();
 const month = currentDate.toLocaleString('default', { month: 'long' });
 const formattedDate = `${day} ${month}`;
 
+function placeholder(){
+  var UserName = localStorage.getItem('username');
+  var textarea = document.getElementById("area");
+  textarea.placeholder = "Hi " + UserName + ", what's on your mind ?";
+}
+document.addEventListener("DOMContentLoaded", function() {
+  placeholder();
+});
 function save() {
   var title = document.getElementById("title").value;
   var content = document.getElementById("area").value;
@@ -54,3 +62,4 @@ function save() {
       }, 3000);
     });
 }
+
