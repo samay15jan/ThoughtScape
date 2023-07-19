@@ -8,8 +8,152 @@
   <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 <body>
-<a href="/pages/login.html">Get started</a> 
-</body>
+  <header class="bg-white-900 text-slate-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 md:flex-row lg:items-center">
+      <a href="index.html" class="flex title-font font-medium items-center text-white mt-2 md:mb-0">
+        <span class="font-serif text-slate-600 text-xl">THOUGHTSCAPE</span>
+      </a>
+      <button id="nav-button" class="lg:hidden mt-4 ml-auto">
+        <i class="fa-solid fa-bars fa-xl"></i>
+      </button>
+      
+      <ul id="nav-bar" class="hidden ml-auto absolute lg:flex lg:relative">
+        <li style="list-style-type: none;"><a href="https://samay15jan.github.io" target="_blank" class="mr-5 md:text-base text-2xl hover:text-slate-400">About</a></li>
+        <li style="list-style-type: none;"><a href="https://github.com/samay15jan" target="_blank" class="mr-5 md:text-base text-2xl hover:text-slate-400">Github</a></li>
+        <li style="list-style-type: none;"><a href="/pages/login.html" class="mr-5 md:text-base text-2xl hover:text-slate-400">Login</a></li>
+      </ul> 
+      
+      <a href="/pages/signup.html"><button class=" hidden lg:flex inline-flex items-center text-white bg-violet-500 border-0 py-2 px-5 focus:outline-none hover:bg-violet-800 rounded-full text-base mt-4 md:mt-0">Start Today
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button></a>
+    </div>
+  </header>
+  <div class="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+  <div class="container px-0 mx-0 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-6xl sm:mb-4 text-3xl font-medium title-font mb-1 text-gray-900 ">Embark on self-discovery <br> through journaling.</h1>
+      <h1 class="sm:text-3xl text-xl my-7 tracking-widest font-medium text-slate-500 title-font mb-13">Achieve serenity through a private online journal, <br> fostering extraordinary personal growth.</h1>
+      <a href="/pages/signup.html"><button class="inline-flex items-center text-white bg-violet-500 border-0 my-0 lg:my-7 py-4 px-12 focus:outline-none hover:bg-violet-800 rounded-full text-xl mt-4 md:mt-0">Start Journaling Today
+      </button></a>
+    </div>
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-0 lg:px-20 py-5 mx-auto flex flex-col">
+        <div class="lg:w-6/5 mx-auto">
+          <div class="rounded-3xl drop-shadow-xl lg:h-85 overflow-hidden">
+            <img alt="content" class="object-cover object-center h-full w-full" src="/assets/images/screenshot-1.png">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+        <h1 class="title-font font-medium text-xl lg:text-3xl text-gray-900">Have Something On Your Mind ?</h1>
+        <p class="leading-relaxed mt-4 lg:text-xl">Please feel free to ask any questions or share your queries with us. We're here to help you with any information you need.</p>
+      </div>
+      <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Contact</h2>
+        <div class="relative mb-4">
+          <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
+          <input required type="text" id="full-name" name="full-name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div required class="relative mb-4">
+          <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+          <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+          <div required class="relative mb-4">
+            <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+            <textarea id="message" name="message" class="w-full bg-white  rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-8 transition-colors duration-200 ease-in-out"></textarea>
+          </div>
+          <div id="result"></div>
+        <button onclick="sendEmail()" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <span class="ml-3 text-xl">Tailblocks</span>
+        </a>
+        <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
+      </div>
+      <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">First Link</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+            </li>
+          </nav>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Resources</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Future Projects</a>
+            </li>
+            <li>
+              <a href="https://github.com/samay15jan/th" class="text-gray-600 hover:text-gray-800">FAQ</a>
+            </li>
+            <li>
+              <a href="/pages/other/our-story.html" class="text-gray-600 hover:text-gray-800">Our Aim</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Other</a>
+            </li>
+          </nav>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Terms and Privacy Policy</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a href="/pages/other/privacy.html" class="text-gray-600 hover:text-gray-800">Privacy Policies</a>
+            </li>
+            <li>
+              <a href="/pages/other/data-usage.html" class="text-gray-600 hover:text-gray-800">Data Usage</a>
+            </li>
+            <li>
+              <a href="/pages/other/storage-info.html" class="text-gray-600 hover:text-gray-800">Storage Policies</a>
+            </li>
+            <li>
+              <a href="/pages/other/terms.html" class="text-gray-600 hover:text-gray-800">Terms Of Services</a>
+            </li>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-100">
+      <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+        <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 ThoughtScape —
+          <a href="https://www.instagram.com/_samay.05/" rel="noopener noreferrer" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@Samay Kumar</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start"></span>
+      </div>
+    </div>
+  </footer>
+<script src="/assets/js/index.js"></script>
+  </body>
 </html>
