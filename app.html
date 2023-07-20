@@ -8,30 +8,30 @@
     <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
     <link rel="stylesheet" href="/assets/css/common.css">
     <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-<body id="theme" class="light-theme" style="background-color: #fffffe; background-image: url(/assets/images/bg-light.png);">
+<body id="theme" class="light-theme font-serif" style="background-color: #fffffe; background-image: url(/assets/images/bg-light.png);">
   <div id="boot-logo">
-    <video autoplay muted loop id="boot-video">
+    <video class="hidden lg:block" autoplay muted loop id="boot-video">
         <source src="/resources/boot.mp4" type="video/mp4">
     </video>
 </div>
-  <div class="container1">
-    <div class="row">
-      <center>
-        <ul class="navbar">
-          <img class="logo1" src="/assets/images/logo.png"><br><br>
-          <li><a href="#" onclick="frame('/pages/journal.html')"><i class='fas fa-book' style='font-size:20px;'></i> Journal</a></li>
-          <li><a href="#" onclick="frame('/pages/chill-zone.html')"><i class="fa-solid fa-couch"2 style='font-size:20px;'></i> Lounge</a></li>
-          <li><a href="#" onclick="frame('/pages/settings.html')"><i class="fa-solid fa-gear" style='font-size:20px;'></i> Settings</a></li>
-          <img class="logo2" src="/assets/images/logo-long.png">
+
+      <div class="container hidden lg:block h-auto">
+        <ul class="bg-white flex flex-col justify-between items-center absolute w-48 h-screen font-serif text-gray-500">
+          <a href="/app.html"><img class=" p-10 w-52 " src="/assets/images/logo.png"></a>
+          <li class="pb-8 hover:text-violet-700"><a href="#" onclick="frame('/pages/journal.html')"><i class='fas fa-book' style='font-size:20px;'></i> Journal</a></li>
+          <li class="py-8 hover:text-violet-700"><a href="#" onclick="frame('/pages/chill-zone.html')"><i class="fa-solid fa-couch"2 style='font-size:20px;'></i> Lounge</a></li>
+          <li class="py-8 hover:text-violet-700"><a href="#" onclick="frame('/pages/settings.html')"><i class="fa-solid fa-gear" style='font-size:20px;'></i> Settings</a></li>
+          <span class="text-violet-600 mb-12 text-xl">THOUGHTSCAPE</span>
         </ul>
-      </center>
-    </div>
-  <div class="container2">
-  <iframe id="iframe" class="iframe" src="/pages/journal.html" allowfullscreen="true" frameborder="0"></iframe>
+      </div>
+
+
+  <div class="container flex flex-col overflow-hidden lg:ml-24 lg:h-auto">
+  <iframe id="iframe" class="iframe w-10/12 h-screen w-screen" src="/pages/journal.html" allowfullscreen="true" frameborder="0"></iframe>
 </div>
-  <a href="/pages/new-data.html" class="float"><i class="fa-solid fa-plus"></i></a>
+  <a href="/pages/new-data.html" class="float bg-violet-500 hover:bg-violet-800 drop-shadow-2xl"><i class="fa-solid fa-plus"></i></a>
 
 </body>
 <script src="/assets/js/common.js"></script> 

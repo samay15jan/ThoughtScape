@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ThoughtScape</title> 
   <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
   <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
@@ -14,21 +16,19 @@
 </head>
 <body>
   <header class="bg-white-900 text-slate-600 body-font">
-    <div class="container mx-auto flex flex-wrap p-5 md:flex-row lg:items-center">
-      <a href="index.html" class="flex title-font font-medium items-center text-white mt-2 md:mb-0">
-        <span class="font-serif text-slate-600 text-xl">THOUGHTSCAPE</span>
+    <div class="container mx-auto flex flex-wrap md:flex-row lg:items-center">
+      <a href="index.html" class="flex title-font font-medium items-center text-white p-2 m-3 md:mb-0 lg:m-4">
+        <span class="font-serif text-violet-500 text-xl">THOUGHTSCAPE</span>
       </a>
-      <button id="nav-button" class="lg:hidden mt-4 ml-auto">
+      <button id="nav-button" class="lg:hidden p-2 m-3 ml-auto lg:m-4">
         <i class="fa-solid fa-bars fa-xl"></i>
       </button>
-      
-      <ul id="nav-bar" class="hidden ml-auto absolute lg:flex lg:relative">
-        <li style="list-style-type: none;"><a href="https://samay15jan.github.io" target="_blank" class="mr-5 md:text-base text-2xl hover:text-slate-400">About</a></li>
-        <li style="list-style-type: none;"><a href="https://github.com/samay15jan" target="_blank" class="mr-5 md:text-base text-2xl hover:text-slate-400">Github</a></li>
-        <li style="list-style-type: none;"><a href="/pages/login.html" class="mr-5 md:text-base text-2xl hover:text-slate-400">Login</a></li>
+      <ul id="nav-bar" class="hidden text-center px-48 bg-white lg:p-5 lg:flex lg:relative lg:ml-auto lg:mt-0 lg-px-0">
+        <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="http://samay15jan.github.io" target="_blank" class="md:text-base text-2xl hover:text-slate-400 lg:mr-5">About</a></div></li>
+        <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="https://github.com/samay15jan" target="_blank" class=" md:text-base text-2xl hover:text-slate-400 lg:mr-5 ">Github</a></div></li>
+        <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="/pages/login.html" class=" md:text-base text-2xl hover:text-slate-400 lg:mr-5 ">Login</a></div></li>
       </ul> 
-      
-      <a href="/pages/signup.html"><button class=" hidden lg:flex inline-flex items-center text-white bg-violet-500 border-0 py-2 px-5 focus:outline-none hover:bg-violet-800 rounded-full text-base mt-4 md:mt-0">Start Today
+      <a href="/pages/signup.html"><button class="hidden lg:flex inline-flex items-center text-white bg-violet-500 border-0 py-2 px-5 focus:outline-none hover:bg-violet-800 rounded-full text-base mt-4 md:mt-0">Start Today
         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7"></path>
         </svg>
@@ -36,7 +36,7 @@
     </div>
   </header>
   <div class="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
-  <div class="container px-0 mx-0 py-24 mx-auto">
+  <div class="animate-1 container px-0 mx-0 py-14 mx-auto lg:py-24">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="sm:text-6xl sm:mb-4 text-3xl font-medium title-font mb-1 text-gray-900 ">Embark on self-discovery <br> through journaling.</h1>
       <h1 class="sm:text-3xl text-xl my-7 tracking-widest font-medium text-slate-500 title-font mb-13">Achieve serenity through a private online journal, <br> fostering extraordinary personal growth.</h1>
@@ -44,7 +44,7 @@
       </button></a>
     </div>
     <section class="text-gray-600 body-font">
-      <div class="container px-5 py-0 lg:px-20 py-5 mx-auto flex flex-col">
+      <div class="animate-2 container px-5 py-0 lg:px-20 py-5 mx-auto flex flex-col">
         <div class="lg:w-6/5 mx-auto">
           <div class="rounded-3xl drop-shadow-xl lg:h-85 overflow-hidden">
             <img alt="content" class="object-cover object-center h-full w-full" src="/assets/images/screenshot-1.png">
@@ -55,12 +55,84 @@
   </div>
 
   <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="animate-3-1 lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
+          <br class="hidden lg:inline-block">readymade gluten
+        </h1>
+        <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
+        <div class="flex justify-center">
+          <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+          <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
+        </div>
+      </div>
+      <div class="animate-3-2 lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+      </div>
+    </div>
+  </section>
+
+  <section class="text-gray-600 body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="animate-4-1 lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+      </div>
+      <div class=" animate-4-2 lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
+          <br class="hidden lg:inline-block">readymade gluten
+        </h1>
+        <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
+        <div class="flex justify-center">
+          <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+          <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="text-gray-600 body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="animate-5-1 lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
+          <br class="hidden lg:inline-block">readymade gluten
+        </h1>
+        <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
+        <div class="flex justify-center">
+          <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+          <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
+        </div>
+      </div>
+      <div class="animate-5-2 lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+      </div>
+    </div>
+  </section>
+
+  <section class="text-gray-600 body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="animate-6-1 lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+      </div>
+      <div class="animate-6-2 lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
+          <br class="hidden lg:inline-block">readymade gluten
+        </h1>
+        <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
+        <div class="flex justify-center">
+          <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+          <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="text-gray-600 body-font">
+    <div class="animate-7-1 container px-5 py-5 mx-auto flex flex-wrap items-center">
       <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
         <h1 class="title-font font-medium text-xl lg:text-3xl text-gray-900">Have Something On Your Mind ?</h1>
         <p class="leading-relaxed mt-4 lg:text-xl">Please feel free to ask any questions or share your queries with us. We're here to help you with any information you need.</p>
       </div>
-      <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+      <div class="animate-7-2 lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
         <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Contact</h2>
         <div class="relative mb-4">
           <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
@@ -79,55 +151,37 @@
       </div>
     </div>
   </section>
+  <section class="text-gray-600 body-font">
 
+  </section>
+  </section>
   <footer class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+    <div class="animate-9 container px-5 py-20 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
       <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          <span class="ml-3 text-xl">Tailblocks</span>
+          <span class=" text-xl">THOUGHTSCAPE</span>
         </a>
-        <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
+        <p class="mt-2 text-sm text-gray-500">Achieve serenity through a private online journal, fostering extraordinary personal growth.</p>
       </div>
-      <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
-        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-          <nav class="list-none mb-10">
-            <li>
-              <a class="text-gray-600 hover:text-gray-800">First Link</a>
-            </li>
-            <li>
-              <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-            </li>
-            <li>
-              <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-            </li>
-            <li>
-              <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-            </li>
-          </nav>
-        </div>
+      <div class="flex-grow flex flex-wrap md:pr-20 mb-10 md:text-left text-center order-first">
         <div class="lg:w-1/4 md:w-1/2 w-full px-4">
           <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Resources</h2>
           <nav class="list-none mb-10">
             <li>
-              <a class="text-gray-600 hover:text-gray-800">Future Projects</a>
+              <a href="/pages/login.html" class="text-gray-600 hover:text-gray-800">Signup</a>
             </li>
             <li>
-              <a href="https://github.com/samay15jan/th" class="text-gray-600 hover:text-gray-800">FAQ</a>
+              <a href="/pages/login.html" class="text-gray-600 hover:text-gray-800">Login</a>
             </li>
             <li>
               <a href="/pages/other/our-story.html" class="text-gray-600 hover:text-gray-800">Our Aim</a>
             </li>
             <li>
-              <a class="text-gray-600 hover:text-gray-800">Other</a>
+              <a href="https://github.com/samay15jan/ThoughtScape" class="text-gray-600 hover:text-gray-800">FAQ</a>
             </li>
           </nav>
         </div>
-        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Terms and Privacy Policy</h2>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4 lg:pl-10">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Terms and Privacy</h2>
           <nav class="list-none mb-10">
             <li>
               <a href="/pages/other/privacy.html" class="text-gray-600 hover:text-gray-800">Privacy Policies</a>
@@ -143,10 +197,19 @@
             </li>
           </nav>
         </div>
+          <div class="flex flex-col md:pr-10 md:mb-0 pt-5 pr-0 w-full md:w-auto md:text-left text-center lg:pl-40 lg:pt-0">
+            <h2 class="text-xl text-indigo-500 tracking-widest font-medium title-font mb-1">Inspired by</h2>
+            <h1 class="md:text-3xl text-3xl font-medium title-font text-gray-900">Reflection.app</h1>
+            <div class="flex md:ml-auto md:mr-0 mx-auto lg:mx-0 items-center flex-shrink-0 space-x-1">
+              <button class="bg-violet-500 inline-flex py-2 px-4 mt-3 rounded-3xl items-center hover:bg-violet-800 focus:outline-none">
+                  <a href="https://www.reflection.app/"><span class="text-xs text-white mb-1">Visit Their Website</span></a>
+              </button>
+            </div>
+          </div>
       </div>
     </div>
     <div class="bg-gray-100">
-      <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <div class="container mx-auto py-1 px-5flex flex-wrap flex-col sm:flex-row">
         <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 ThoughtScape —
           <a href="https://www.instagram.com/_samay.05/" rel="noopener noreferrer" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@Samay Kumar</a>
         </p>

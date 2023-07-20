@@ -16,7 +16,7 @@
   <body id="theme" class="light-theme">
     <center>
       <div class="top">
-        <p class="quote" id="quote" style="margin-left: 375px;">Quote</p>
+        <p class="quote" id="quote">Quote</p>
       </div>
     </center>
 
@@ -24,22 +24,24 @@
   <h2>Settings</h2>
     <div id="completeProfile"></div>
   <h4>Your Account</h4> 
-    <div id="usernameLoc"></div>
-    <div id="email"></div>
+  <div style="padding-left: 10px;">
+    <div id="usernameLoc"></div><br>
+    <div id="email"></div><br>
     <div id="count"></div>
-  <h4>Email Alerts</h4>
-    <div id="emailAlerts"></div>
-  <h4>Our Story <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></h4>
-  <h4>Feedback and Support</h4>
-  <form method="post">
-    <textarea name="input-box" id="input-box" placeholder="Feel free to ask anything. We'll respond ASAP." cols="50" rows="5" spellcheck="false"></textarea><br>
-    <input type="button" id="button" value="Send" onclick="sendmail()" />
-  </form><br>
-Terms of Service 
-Privacy Policy 
-Data Usage 
-Storage Information 
-
+  </div>
+    <h4>Feedback and Support</h4>
+    <form method="post" onsubmit="sendmail(); reset(); return false">
+      <textarea id="inputBox" placeholder="How can we help you?" cols="50" rows="5" spellcheck="false" required></textarea><br>
+      <button type="submit">Send</button>
+      <div id="result"></div>
+    </form>
+  <div style="display: flex;">
+  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/our-story.html">Our Story <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
+  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/terms.html">Terms of Service <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
+  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/privacy.html">Privacy Policy <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
+  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/data-usage.html">Data Usage <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
+  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/storage-info.html">Storage Information <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
+  </div>
 <script src="/assets/js/common.js"></script>
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/emails.js"></script>
