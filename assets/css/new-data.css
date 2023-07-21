@@ -1,40 +1,13 @@
-.top {
-    display: flex;
-    align-items: center;
-  }
-
-  .top-items-left {
-    margin-left: 10px;
-  }
-
-  .top-items-right {
-    margin-left: 620px;
-  }
-
-  .img {
-    width: 5%;
-    margin-left: 510px;
-    border-radius: 15px;
-  }
-
-  .bottom {
-    display: flex;
-    align-items: center;
-  }
-
-  .bottom-items {
-    margin-left: 1080px;
-  }
 
 
 
-  .textarea {
+.textarea {
     border: none;
     resize: none;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 16px;
   }
-  textarea:focus {
+.textarea:focus {
   outline: none;
 }
 .light-theme {

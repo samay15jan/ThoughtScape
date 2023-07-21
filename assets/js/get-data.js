@@ -31,15 +31,17 @@ function getData() {
         const entryData = doc.data();
         var A_title = entryData.A_Title;
         var content = entryData.B_Content;
-        var B_content = content.slice(0,200) + " ....read more";
+        var B_content = content.slice(0,200) + ".....read more";
         var D_date = entryData.D_Date;
 
 
         var titleElement = document.createElement("H4");
         titleElement.textContent = A_title;
+        titleElement.className = "font-medium";
 
         var contentElement = document.createElement("p");
         contentElement.textContent = B_content;
+        contentElement.className = "text-sm";
 
         var dateElement = document.createElement("H4");
         dateElement.textContent = D_date;
@@ -57,8 +59,8 @@ function getData() {
 
 
         var parentElement = document.createElement("div");
-        parentElement.className = "content";
-        parentElement.style = "margin: 20px; box-shadow: 0px 0px 3px 0px grey;";
+        parentElement.className = "content drop-shadow-lg";
+        parentElement.style = "margin: 20px";
         parentElement.appendChild(containerLeft);
         parentElement.appendChild(containerRight);
         parentElement.onclick =function on() {
@@ -66,11 +68,11 @@ function getData() {
             overlay.style.display = "block";
             var expand = document.getElementById("text");
             expand.textContent = content;
-            expand.className = "content-overlay";
+            expand.className = "content-overlay text-lg mx-10 my-5";
           };
 
         var finalparentElement = document.getElementById("titles-container");
-        finalparentElement.className = "parent-content";
+        finalparentElement.className = "parent-content animate-3";
         finalparentElement.appendChild(parentElement);      
       });
     })

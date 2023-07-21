@@ -43,7 +43,7 @@ function save() {
     })
     .then(function() {
       var output = document.getElementById("output");
-      output.innerHTML = "Saved";
+      output.innerHTML = "Saved !!";
       output.style.display = "block";
       setTimeout(function() {
         output.innerText = "";

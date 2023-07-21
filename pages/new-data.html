@@ -10,26 +10,25 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="/assets/js/new-data.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
 
 </head>
-<body id="theme" class="light-theme">
-    <center>
-        
-        <div class="top">
-            <p  class="top-items-left" id="date"></p>
-            <img src="/assets/images/logo.png" class="img" alt="">
-            <a href="#" id="toggle1" class="top-items-right" style="width: 3%; background-color:transparent ; border: none;" onclick="toggletheme()"><img id="toggle2" src="/assets/images/toggle-moon.svg"></a>
+<body id="theme" class="light-theme " style="background-image: url(/assets/images/bg-light.png);">
+        <div class="container flex flex-rows text-center m-screen justify-center">
+            <a class="mt-4 ml-5 lg:ml-10 m-full text-base"  href="/app.html"><i class="fa-solid fa-left-long fa-xl"></i></a><br><br>
+            <img src="/assets/images/logo.png" class="mx-auto w-14">
+            <a href="#" id="toggle1" class="w-8 ml-5 lg-ml-10 mt-3" style="background-color:transparent ; border: none;" onclick="toggletheme()"><img id="toggle2" src="/assets/images/toggle-moon.svg"></a>
         </div>
-        <p id="output"></p>
-        <textarea id="title" class="textarea" name="inputbox" style="color: #212529;" placeholder="Title" cols="60" rows="2" autofocus required spellcheck="false"></textarea>
-        <textarea id="area" class="textarea" name="inputbox" style="color: #212529;" placeholder="" cols="60" rows="19" autofocus spellcheck="false"></textarea>
+        <div class="container flew justify-center m-screen h-screen mt-10">
+        <textarea id="title" class="bg-white text-black rounded-xl p-2 lg:ml-20 lg:ml-64 lg:w-2/3 mx-10 w-4/5 textarea mb-4 drop-shadow-xl" name="inputbox"  placeholder="Title" rows="1" autofocus required spellcheck="false"></textarea><br>
+        <textarea id="area" class="bg-white rounded-xl p-2 lg:ml-20 lg:ml-64 mx-10 w-4/5 lg:w-2/3 textarea drop-shadow-xl h-3/5" name="inputbox"  placeholder="" autofocus spellcheck="false"></textarea>
+        </div>
         <div id="center"></div>
-    </center>
-    <div class="bottom">
         <button id="buttons1" onclick="response()" style="margin: 3px;" class="bottom-items css-button-sliding-to-top--black1">AI Response</button>
         <button id="buttons2" onclick="save()" class="bottom-items css-button-sliding-to-top--black1">Save</button>
-    </div>
-</div>
+        <p class="text-xl text-center" id="output"></p>
     <script src="/assets/js/toggle.js"></script>
     <script src="/assets/js/time-date.js"></script>
     <script src="/assets/js/responses.js"></script>
