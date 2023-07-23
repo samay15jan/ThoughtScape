@@ -5,10 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThoughtScape</title>
     <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-<div id="output"></div>
-<script src="/assets/js/matterport.js"></script>
+    <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"></head>
+<body class="m-0 p-0 overflow-hidden" style="background-color: #0f1011;">
+    <div class='container flex justify-center m-0 p-0 h-screen w-10/12 w-screen h-screen pb-14 lg:pb-0'>
+        <iframe id="iframe" class='lg:ml-24 w-full h-full' src="" frameborder="0" allowfullscreen="true"></iframe>
+        <button id="button" class="absolute pt-2 rounded-full bg-slate-900" onclick="playAudio()"><i class="fa-solid fa-music fa-xl" style="color: #ffffff;"></i></button>
+        <audio id="bg-audio" src="/resources/bg-music.mp3" loop></audio>
+    </div>
+<script>
+    let isPlaying = false;
+    function playAudio() {
+        const audio = document.getElementById('bg-audio');
+        const id = document.getElementById("button");
+        if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+
+    isPlaying = !isPlaying;
+    }
+
+
+    const iframeSrcFile = "/resources/matterport.txt";
+    async function explore(iframeSrcFile){
+        const file = await fetch(iframeSrcFile);
+        const text = await file.text();
+        const randomline = Math.floor(Math.random() * 25);
+        const lines = text.split('\n'); 
+        const finalSrc = lines[randomline];
+        const location = document.getElementById('iframe');
+        location.src = finalSrc;
+    }
+    explore(iframeSrcFile)
+</script>
 </body>
 </html>
