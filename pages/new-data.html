@@ -15,20 +15,24 @@
     <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
 
 </head>
-<body id="theme" class="light-theme " style="background-image: url(/assets/images/bg-light.png);">
-        <div class="container flex flex-rows text-center m-screen justify-center">
-            <a class="mt-4 ml-5 lg:ml-10 m-full text-base"  href="/app.html"><i class="fa-solid fa-left-long fa-xl"></i></a><br><br>
+<body id="theme" class="light-theme">
+        <div class="animate-1 container flex flex-rows text-center m-screen justify-center">
+            <a class="mt-4 ml-5 lg:ml-16 m-full text-base text-black"  href="/app.html"><i class="fa-solid fa-left-long fa-xl"></i></a><br><br>
             <img src="/assets/images/logo.png" class="mx-auto w-14">
-            <a href="#" id="toggle1" class="w-8 ml-5 lg-ml-10 mt-3" style="background-color:transparent ; border: none;" onclick="toggletheme()"><img id="toggle2" src="/assets/images/toggle-moon.svg"></a>
+            <a href="#" id="toggle1" class="w-8 ml-5 mt-3" style="background-color:transparent ; border: none;" onclick="toggletheme()"><img id="toggle2" src="/assets/images/toggle-moon.svg"></a>
         </div>
-        <div class="container flew justify-center m-screen h-screen mt-10">
-        <textarea id="title" class="bg-white text-black rounded-xl p-2 lg:ml-20 lg:ml-64 lg:w-2/3 mx-10 w-4/5 textarea mb-4 drop-shadow-xl" name="inputbox"  placeholder="Title" rows="1" autofocus required spellcheck="false"></textarea><br>
-        <textarea id="area" class="bg-white rounded-xl p-2 lg:ml-20 lg:ml-64 mx-10 w-4/5 lg:w-2/3 textarea drop-shadow-xl h-3/5" name="inputbox"  placeholder="" autofocus spellcheck="false"></textarea>
+        <div class="container justify-center m-screen h-screen mt-5 overflow-x-hidden">
+            <textarea id="title" class="bg-white text-black rounded-xl p-2 lg:ml-20 lg:ml-64 lg:w-2/3 mx-10 w-4/5 textarea mb-4 drop-shadow-xl" name="inputbox"  placeholder="Title" rows="1" autofocus required spellcheck="false"></textarea><br>
+            <textarea id="area" class="bg-white text-black rounded-xl p-2 lg:ml-20 lg:ml-64 mx-10 w-4/5 lg:w-2/3 textarea drop-shadow-xl h-3/5" name="inputbox"  placeholder="" autofocus spellcheck="false"></textarea>
+            <div class="container">
+                <div id="AI-response" class="hidden"><img id="logoAI" class="w-8 rounded-full" src="/assets/images/ai.jpg"></div>
+            </div>
+            <div class="animate-4 container justify-center m-screen mt-8 ml-10 lg:ml-0">
+                <button id="buttons1" onclick="response()" class="lg:ml-96 css-button-sliding-to-top--black1">AI Response</button>
+                <button id="buttons2" onclick="save()" class="ml-20 lg:ml-80 css-button-sliding-to-top--black1">Save</button>    
+            </div>
+            <p class="text-xl text-center" id="output"></p>
         </div>
-        <div id="center"></div>
-        <button id="buttons1" onclick="response()" style="margin: 3px;" class="bottom-items css-button-sliding-to-top--black1">AI Response</button>
-        <button id="buttons2" onclick="save()" class="bottom-items css-button-sliding-to-top--black1">Save</button>
-        <p class="text-xl text-center" id="output"></p>
     <script src="/assets/js/toggle.js"></script>
     <script src="/assets/js/time-date.js"></script>
     <script src="/assets/js/responses.js"></script>
