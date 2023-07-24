@@ -12,36 +12,33 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-  <body id="theme" class="light-theme">
-    <center>
-      <div class="top">
-        <p class="quote" id="quote">Quote</p>
-      </div>
-    </center>
-
-<div style="margin-left: 150px;">
-  <h2>Settings</h2>
-    <div id="completeProfile"></div>
-  <h4>Your Account</h4> 
-  <div style="padding-left: 10px;">
-    <div id="usernameLoc"></div><br>
-    <div id="email"></div><br>
-    <div id="count"></div>
-  </div>
-    <h4>Feedback and Support</h4>
-    <form method="post" onsubmit="sendmail(); reset(); return false">
-      <textarea id="inputBox" placeholder="How can we help you?" cols="50" rows="5" spellcheck="false" required></textarea><br>
-      <button type="submit">Send</button>
+<body id="theme" class="light-theme overflow-x-hidden" >
+  <div class="container flex flex-rows w-auto h-auto place-content-center p-5 pt-3">
+    <p class="bg-white p-2 drop-shadow-lg text-center rounded-full" id="quote">Quote</p>
+  </div>  
+  <div class=" ml-2 pt-5 text-2xl lg:ml-64 font-bold">Settings</div>     
+  <div id="completeProfile"></div>
+  <div class=" ml-2 pt-5 pb-2 text-xl lg:ml-64 font-medium"> Your Account</div>     
+  <div class=" ml-5 text-base lg:ml-72" id="usernameLoc"></div>     
+  <div class=" ml-5 text-base lg:ml-72" id="email"></div>
+  <div class=" ml-5 text-base lg:ml-72" id="count"></div>
+  <div class=" ml-2 pt-5 pb-2 text-xl lg:ml-64 font-medium">Feedback and Support</div>     
+    <form class="pb-10" method="post" onsubmit="sendmail(); reset(); return false">
+      <textarea id="inputBox" class="lg:ml-72 rounded-xl drop-shadow-lg" placeholder="How can we help you?" cols="50" rows="5" spellcheck="false" required></textarea><br>
+      <button class="bg-white text-slate-700 rounded-xl drop-shadow-lg px-3 py-1 ml-2 lg:ml-72" type="submit"><i class="fa-solid fa-paper-plane fa-xl"></i></button>
       <div id="result"></div>
     </form>
-  <div style="display: flex;">
-  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/our-story.html">Our Story <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
-  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/terms.html">Terms of Service <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
-  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/privacy.html">Privacy Policy <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
-  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/data-usage.html">Data Usage <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
-  <p style="font-size: 14px; margin: 10px;"> <a href="/pages/other/storage-info.html">Storage Information <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77767b;"></i></a></p>
+  <div class="container flex flex-rows justify-center place-content-center text-xs lg:mx-10 mb-5 lg:mt-10 text-slate-500">
+  <a class="mr-1 lg:mr-5" href="/pages/other/our-story.html">Our Story</a>
+  <a class="mx-1 lg:mx-5" href="/pages/other/terms.html">Terms of Service</a>
+  <a class="mx-1 lg:mx-5" href="/pages/other/privacy.html">Privacy Policy</a>
+  <a class="mx-1 lg:mx-5" href="/pages/other/data-usage.html">Data Usage</a>
+  <a class="ml-1 lg:ml-5" href="/pages/other/storage-info.html">Storage Information</a>
   </div>
+  <div class="container flex place-content-center text-base text-slate-700 mt-5 pb-5 mr-3 lg:mr-0 lg:ml-7" > -x-x-x- </div>
+
 <script src="/assets/js/common.js"></script>
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/emails.js"></script>

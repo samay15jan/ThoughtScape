@@ -14,6 +14,7 @@ const firebaseConfig = {
 // Login 
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
+  localStorage.clear();
   var email = document.getElementById('login-email').value;
   var password = document.getElementById('login-password').value;
   var output = document.getElementById('output');

@@ -13,7 +13,19 @@
 
   sr.reveal('.animate-2', {
     origin: 'left',  
+    interval: 300 
+  })
+
+  sr.reveal('.animate-3', {
+    origin: 'bottom',  
     interval: 500 
   })
+  sr.reveal('.animate-4', {
+    origin: 'bottom',  
+    interval: 200 
+  })
+
+
+
 
 
