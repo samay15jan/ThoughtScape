@@ -5,7 +5,7 @@ async function response() {
   
     const requestBody = {
       model: 'gpt-3.5-turbo',
-      messages: [{ role: 'system', content: 'You Elena, an ai assistant who helps users by providing solutions for everyday problems.' }, { role: 'user', content: input }],
+      messages: [{ role: 'system', content: 'You Elena, an ai assistant who helps users by providing solutions for everyday problems and dont autocomplete inputs.' }, { role: 'user', content: input }],
       temperature: 0.5,
       max_tokens: 300,
       top_p: 1,
@@ -69,4 +69,3 @@ async function response() {
 
 
 
-// typing effect
