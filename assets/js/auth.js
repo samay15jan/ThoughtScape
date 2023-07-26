@@ -41,7 +41,7 @@ function register(){
       last_login : Date.now()
     }  
     database_ref.child('users/' + user.uid).set(user_data)
-    output_result.innerHTML = "Email has been sent."
+    output_result.innerHTML = "User Registered Successfully."
   })
   .catch(function(error){
     output_result.innerHTML = error;
@@ -68,12 +68,22 @@ function login(){
       last_login : Date.now()
     }  
     database_ref.child('users/' + user.uid).update(user_data)
+    output_result.className = "text-base text-green-500";
     output_result.innerHTML = "User Logged In Sucessfully..."
+    window.location.href = "/app.html";
   })
   .catch(function(error){
     output_result.innerHTML = error;
   })
 }
+
+// Listen for changes in the user's authentication state
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    window.location.href = "/app.html"; 
+  } else {
+  }
+});
 
 // Validate Functions
 function validate_username(username) {

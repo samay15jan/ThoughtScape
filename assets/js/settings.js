@@ -48,7 +48,15 @@ function  basicDetails(){
 basicDetails();
 
 
-
+function logout() {
+  firebase.auth().signOut().then(() => {
+    window.parent.location.href = "/pages/auth.html";
+  }).catch((error) => {
+    // Handle logout errors here
+    console.error("Logout failed: ", error.message);
+    alert("Logout failed. Please try again.");
+  });
+}
 
 
 // Complete Profile

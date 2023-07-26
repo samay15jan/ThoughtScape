@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -24,6 +25,7 @@
   <div class=" ml-5 text-base lg:ml-72" id="usernameLoc"></div>     
   <div class=" ml-5 text-base lg:ml-72" id="email"></div>
   <div class=" ml-5 text-base lg:ml-72" id="count"></div>
+  <button class="ml-5 text-base lg:ml-72" onclick="logout()">logout</button>
   <div class=" ml-2 pt-5 pb-2 text-xl lg:ml-64 font-medium">Feedback and Support</div>     
     <form class="pb-10" method="post" onsubmit="sendmail(); reset(); return false">
       <textarea id="inputBox" class="lg:ml-72 rounded-xl drop-shadow-lg" placeholder="How can we help you?" cols="50" rows="5" spellcheck="false" required></textarea><br>
