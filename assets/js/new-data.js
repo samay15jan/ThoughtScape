@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function save() {
   var title = document.getElementById("title").value;
   var content = document.getElementById("area").value;
-  var userId = localStorage.getItem('userId');
+  var userId = localStorage.getItem('email');
 
   db.collection("Entries")
     .doc(userId)

@@ -1,8 +1,6 @@
-
 function off() {
   document.getElementById("overlay").style.display = "none";
 }
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
@@ -17,12 +15,34 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-var db = firebase.firestore();
-var userId = localStorage.getItem('userId');
+function realtimeDatabase(){
+  const userId = localStorage.getItem('userId');
+  if (userId) {
+    const databaseRef = firebase.database().ref('users/' + userId);
+    databaseRef.once('value')
+      .then((snapshot) => {
+        const current_user_email = snapshot.val().email;
+        const current_user_key = snapshot.val().encrypt_key;
+        const current_user_username = snapshot.val().username;
+        localStorage.setItem('email', current_user_email);
+        localStorage.setItem('key', current_user_key);
+        localStorage.setItem('username', current_user_username);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+    });
+} else {
+  console.error("User not authenticated.");
+}};
 
+realtimeDatabase();
+
+
+var db = firebase.firestore();
+const email = localStorage.getItem('email');
 function getData() {
   db.collection("Entries")
-    .doc(userId)
+    .doc(email)
     .collection("Journal")
     .orderBy("D_Date", "desc")
     .get()
@@ -80,5 +100,19 @@ function getData() {
       console.error("Error getting documents: ", error);
     });
 }
+getData();
 
-getData()
+// Greetings
+var greetings = document.getElementById("greet");
+var UserName = localStorage.getItem('username');
+var time = new Date();
+var hours = time.getHours();
+if (hours >= 0 && hours < 12){
+  greetings.innerHTML = 'Good Morning, ' + UserName;
+}
+else if (hours >= 12 && hours < 18){
+  greetings.innerHTML = 'Good Afternoon, ' + UserName;
+}
+else {
+  greetings.innerHTML = 'Good Evening, ' + UserName;
+}

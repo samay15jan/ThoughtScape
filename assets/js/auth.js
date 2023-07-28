@@ -11,8 +11,8 @@ const firebaseConfig = {
   };
 
 firebase.initializeApp(firebaseConfig);   
-const auth = firebase.auth()
-const database = firebase.database()
+const auth = firebase.auth();
+const database = firebase.database();
 
 // Register
 function register(){
@@ -20,6 +20,7 @@ function register(){
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
   var output_result = document.getElementById("output_result");
+  const generatedKey = generateKey();
   // validating data
   if (validate_username(username) == false){
     return
@@ -38,8 +39,9 @@ function register(){
     var user_data = {
       email : email,
       username : username,
-      last_login : Date.now()
-    }  
+      last_login : Date.now(),
+      encrypt_key : generatedKey
+    }
     database_ref.child('users/' + user.uid).set(user_data)
     output_result.innerHTML = "User Registered Successfully."
   })
@@ -59,10 +61,10 @@ function login(){
   }
   auth.signInWithEmailAndPassword(email, password)
   .then(function(){
-    var user = auth.currentUser
+    var user = auth.currentUser;
+    localStorage.setItem('userId', user.uid);
     // Add this user to Firebase Database
-    var database_ref = database.ref() 
-
+    var database_ref = database.ref()
     // Update User data
     var user_data = {
       last_login : Date.now()
@@ -76,14 +78,6 @@ function login(){
     output_result.innerHTML = error;
   })
 }
-
-// Listen for changes in the user's authentication state
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    window.location.href = "/app.html"; 
-  } else {
-  }
-});
 
 // Validate Functions
 function validate_username(username) {
@@ -118,3 +112,13 @@ function validate_password(password){
   }
 }
 
+// Function to generate a random encryption key
+function generateKey() {
+  const keyLength = 32;
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let key = '';
+  for (let i = 0; i < keyLength; i++) {
+    key += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return key;
+}

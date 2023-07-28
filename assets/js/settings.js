@@ -15,27 +15,20 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
+var email = localStorage.getItem('email');
+var username = localStorage.getItem('username');
 
 // Getting basic details 
- 
 function  basicDetails(){
   // Getting Username
-  db.collection("Entries")
-    .doc(userId)
-    .get()
-    .then((doc) => {
-        const entryData = doc.data();
-        var UserName = entryData.username;
-        var usernameLoc = document.getElementById("usernameLoc");
-        usernameLoc.innerHTML = "Username: " + UserName;
-        localStorage.setItem('username', UserName);
+  var usernameLoc = document.getElementById("usernameLoc");
+  usernameLoc.innerHTML = "Username: " + username;
   // Getting Email Address
   var emailLocation = document.getElementById('email');
-  emailLocation.innerHTML = "Email Address: " + userId;
-  })
+  emailLocation.innerHTML = "Email Address: " + email;
   // Getting Total Entries
   db.collection("Entries")
-  .doc(userId)
+  .doc(email)
   .collection("Journal")
   .get()
   .then((querySnapshot) => {
@@ -43,13 +36,15 @@ function  basicDetails(){
     var output = document.getElementById("count");
     output.innerHTML = "Total Number Of Entries: " + count;
   })
-
 }
 basicDetails();
 
-
 function logout() {
   firebase.auth().signOut().then(() => {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('email');
+    localStorage.removeItem('key');
+    localStorage.removeItem('username');
     window.parent.location.href = "/pages/auth.html";
   }).catch((error) => {
     // Handle logout errors here
@@ -57,44 +52,3 @@ function logout() {
     alert("Logout failed. Please try again.");
   });
 }
-
-
-// Complete Profile
-var usernameCheck = document.getElementById('username').innerHTML.trim();
-if(usernameCheck !== ""){
-  console.log("User Profile Looks Perfect");
-} 
-else{
-  var completeProfile = document.getElementById('completeProfile');
-
-  var addUsername = document.createElement("input");
-  addUsername.id = "addUsername"
-  addUsername.className = "input-box";
-  addUsername.type = "text";
-  addUsername.placeholder = "Enter your username";
-
-  var userButton = document.createElement("button");
-  userButton.className = "button";
-  userButton.id = "buttonId";
-  userButton.onclick = save;
-  userButton.innerHTML = "Save";
-  
-  function save(){
-    var finalUsername = addUsername.value;
-    var userId = localStorage.getItem('userId');
-    const userDocRef = firebase.firestore().collection("Entries").doc(userId);
-    userDocRef.set({
-      username: finalUsername,
-    }, { merge: true })
-    .then(() => {
-      console.log("Username data added successfully.");
-    })
-    .catch((error) => {
-      console.error("Error adding username and user profile data:", error);
-    });
-  }
-
-  completeProfile.appendChild(addUsername);
-  completeProfile.appendChild(userButton);
-};
-
