@@ -1,5 +1,6 @@
-var userId = localStorage.getItem('userId');
+var userId = localStorage.getItem('email');
 var UserName = localStorage.getItem('username');
+
 function sendmail(){
 var comment = document.getElementById('inputBox').value;
 Email.send({

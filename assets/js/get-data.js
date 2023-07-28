@@ -49,12 +49,23 @@ function getData() {
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const entryData = doc.data();
-        var A_title = entryData.A_Title;
-        var content = entryData.B_Content;
+        var encryptedTitle= entryData.A_Title;
+        var encryptedContent = entryData.B_Content;
+        const key = localStorage.getItem('key');
+        
+        // Function to decrypt data using AES
+        function decryptData(data, key) {
+          const decryptedData = CryptoJS.AES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
+          return decryptedData;
+        }
+        const decryptedTitle = decryptData(encryptedTitle, key);
+        const decryptedContent = decryptData(encryptedContent, key);
+
+        var A_title = decryptedTitle;
+        var content = decryptedContent;
         var B_content = content.slice(0,200) + ".....read more";
         var D_date = entryData.D_Date;
-
-
+      
         var titleElement = document.createElement("H4");
         titleElement.textContent = A_title;
         titleElement.className = "font-medium";

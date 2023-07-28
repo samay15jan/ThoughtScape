@@ -43,6 +43,7 @@ function register(){
       encrypt_key : generatedKey
     }
     database_ref.child('users/' + user.uid).set(user_data)
+    output_result.className = "text-base text-green-500";
     output_result.innerHTML = "User Registered Successfully."
   })
   .catch(function(error){

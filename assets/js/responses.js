@@ -1,4 +1,5 @@
 async function response() {
+    const apiKey = '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';
     const apiUrl = 'https://api.openai.com/v1/chat/completions';
   
     const input = document.getElementById('area').value;

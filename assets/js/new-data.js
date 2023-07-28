@@ -1,4 +1,3 @@
-
 var firebaseConfig = {
   apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
   authDomain: "thoughtscape.firebaseapp.com",
@@ -31,14 +30,25 @@ function save() {
   var title = document.getElementById("title").value;
   var content = document.getElementById("area").value;
   var userId = localStorage.getItem('email');
+  const key = localStorage.getItem('key');
 
+  // Function to encrypt data using AES
+  function encryptData(data, key) {
+    const encryptedData = CryptoJS.AES.encrypt(data, key).toString();
+    return encryptedData;
+  }
+
+  // Encryption of data
+  const encryptedTitle = encryptData(title, key);
+  const encryptedContent = encryptData(content, key);
+  
   db.collection("Entries")
     .doc(userId)
     .collection("Journal")
     .doc()
     .set({
-      A_Title: title,
-      B_Content: content,
+      A_Title: encryptedTitle,
+      B_Content: encryptedContent,
       D_Date: formattedDate
     })
     .then(function() {
