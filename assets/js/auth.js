@@ -74,7 +74,7 @@ function login(){
     database_ref.child('users/' + user.uid).update(user_data)
     output_result.className = "text-base text-green-500";
     output_result.innerHTML = "User Logged In Sucessfully..."
-    window.location.href = "/app.html";
+    window.location.href = "/main";
   })
   .catch(function(error){
     output_result.innerHTML = error;

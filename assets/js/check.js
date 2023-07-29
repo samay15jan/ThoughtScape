@@ -15,6 +15,6 @@ var auth = firebase.auth()
 
   auth.onAuthStateChanged((user) => {
     if (!user) {
-      window.location.href = "/pages/auth.html";
+      window.location.href = "/auth";
     }
   });

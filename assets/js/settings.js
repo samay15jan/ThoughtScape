@@ -45,7 +45,7 @@ function logout() {
     localStorage.removeItem('email');
     localStorage.removeItem('key');
     localStorage.removeItem('username');
-    window.parent.location.href = "/pages/auth.html";
+    window.parent.location.href = "/auth";
   }).catch((error) => {
     // Handle logout errors here
     console.error("Logout failed: ", error.message);
