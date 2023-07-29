@@ -1,5 +1,5 @@
   // Firebase Initialization
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
     authDomain: "thoughtscape.firebaseapp.com",
     databaseURL: "https://thoughtscape-default-rtdb.firebaseio.com",
@@ -11,9 +11,8 @@ const firebaseConfig = {
   };
 
 firebase.initializeApp(firebaseConfig);   
-const auth = firebase.auth()
+var auth = firebase.auth()
 
-  // Check if the user is authenticated on page load
   auth.onAuthStateChanged((user) => {
     if (!user) {
       window.location.href = "/pages/auth.html";

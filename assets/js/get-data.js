@@ -2,7 +2,7 @@ function off() {
   document.getElementById("overlay").style.display = "none";
 }
 
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
   authDomain: "thoughtscape.firebaseapp.com",
   databaseURL: "https://thoughtscape-default-rtdb.firebaseio.com",

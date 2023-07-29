@@ -1,5 +1,5 @@
 // Firebase Initialization
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
     authDomain: "thoughtscape.firebaseapp.com",
     databaseURL: "https://thoughtscape-default-rtdb.firebaseio.com",
@@ -11,8 +11,9 @@ const firebaseConfig = {
   };
 
 firebase.initializeApp(firebaseConfig);   
-const auth = firebase.auth();
-const database = firebase.database();
+
+var auth = firebase.auth();
+var database = firebase.database();
 
 // Register
 function register(){
