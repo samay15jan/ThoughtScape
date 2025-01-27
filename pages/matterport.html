@@ -1,49 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ThoughtScape</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/idb@7.0.0/build/umd.js"></script>
+    <script src="/assets/js/indexedDB.js"></script>
+    <link rel="manifest" href="manifest.json" />
     <script src="/assets/js/check.js"></script>
-    <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
-    <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="m-0 p-0 overflow-hidden" style="background-color: #0f1011;">
-    <div class='container flex justify-center m-0 p-0 h-screen w-10/12 w-screen h-screen pb-14 lg:pb-0'>
-        <iframe id="iframe" class='lg:ml-24 w-full h-full' src="" frameborder="0" allowfullscreen="true"></iframe>
-        <button id="button" class="absolute pt-2 rounded-full bg-slate-900" onclick="playAudio()"><i class="fa-solid fa-music fa-xl" style="color: #ffffff;"></i></button>
-        <audio id="bg-audio" src="/resources/bg-music.mp3" loop></audio>
+    <link rel="icon" href="/assets/images/logo.png" type="image/icon type" />
+    <script
+      src="https://kit.fontawesome.com/38055e6d9a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="m-0 p-0 overflow-hidden" style="background-color: #0f1011">
+    <div
+      class="container flex justify-center m-0 p-0 h-screen w-10/12 w-screen h-screen pb-14 lg:pb-0"
+    >
+      <iframe
+        id="iframe"
+        class="lg:ml-24 w-full h-full"
+        src=""
+        frameborder="0"
+        allowfullscreen="true"
+      ></iframe>
+      <button
+        id="button"
+        class="absolute pt-2 rounded-full bg-slate-900"
+        onclick="playAudio()"
+      >
+        <i class="fa-solid fa-music fa-xl" style="color: #ffffff"></i>
+      </button>
+      <audio id="bg-audio" src="/resources/bg-music.mp3" loop></audio>
     </div>
-<script>
-    let isPlaying = false;
-    function playAudio() {
-        const audio = document.getElementById('bg-audio');
+    <script>
+      let isPlaying = false;
+      function playAudio() {
+        const audio = document.getElementById("bg-audio");
         const id = document.getElementById("button");
         if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
+          audio.pause();
+        } else {
+          audio.play();
+        }
 
-    isPlaying = !isPlaying;
-    }
+        isPlaying = !isPlaying;
+      }
 
-
-    const iframeSrcFile = "/resources/matterport.txt";
-    async function explore(iframeSrcFile){
+      const iframeSrcFile = "/resources/matterport.txt";
+      async function explore(iframeSrcFile) {
         const file = await fetch(iframeSrcFile);
         const text = await file.text();
         const randomline = Math.floor(Math.random() * 25);
-        const lines = text.split('\n'); 
+        const lines = text.split("\n");
         const finalSrc = lines[randomline];
-        const location = document.getElementById('iframe');
+        const location = document.getElementById("iframe");
         location.src = finalSrc;
-    }
-    explore(iframeSrcFile)
-</script>
-</body>
+      }
+      explore(iframeSrcFile);
+    </script>
+  </body>
 </html>

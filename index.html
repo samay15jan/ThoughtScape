@@ -12,7 +12,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
   <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
   <link href="/assets/css/output.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
   <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/idb@7.0.0/build/umd.js"></script>
 </head>
 <body>
   <header class="bg-white-900 text-slate-600 body-font">
@@ -23,7 +25,12 @@
       <button id="nav-button" class="lg:hidden p-2 m-3 ml-auto lg:m-4">
         <i class="fa-solid fa-bars fa-xl"></i>
       </button>
-      <ul id="nav-bar" class="hidden text-center px-48 bg-white lg:p-5 lg:flex lg:relative lg:ml-auto lg:mt-0 lg-px-0">
+      <ul id="nav-bar" class="w-screen justify-center hidden text-center bg-white lg:p-5 lg:ml-auto lg:mt-0 lg-px-0">
+        <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="http://samay15jan.github.io" target="_blank" class="md:text-base text-2xl hover:text-slate-400 lg:mr-5">About</a></div></li>
+        <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="https://github.com/samay15jan" target="_blank" class=" md:text-base text-2xl hover:text-slate-400 lg:mr-5 ">Github</a></div></li>
+        <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="/auth" class=" md:text-base text-2xl hover:text-slate-400 lg:mr-5 ">Login</a></div></li>
+      </ul> 
+      <ul id="nav-bar" class="lg:flex hidden text-center px-48 bg-white lg:p-5 lg:ml-auto lg:mt-0 lg-px-0">
         <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="http://samay15jan.github.io" target="_blank" class="md:text-base text-2xl hover:text-slate-400 lg:mr-5">About</a></div></li>
         <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="https://github.com/samay15jan" target="_blank" class=" md:text-base text-2xl hover:text-slate-400 lg:mr-5 ">Github</a></div></li>
         <li style="list-style-type: none;"><div class="py-4 lg:py-0"><a href="/auth" class=" md:text-base text-2xl hover:text-slate-400 lg:mr-5 ">Login</a></div></li>
@@ -202,5 +209,10 @@
     </div>
   </footer>
 <script src="/assets/js/index.js"></script>
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
   </body>
 </html>

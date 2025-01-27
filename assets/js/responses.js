@@ -1,29 +1,19 @@
 async function response() {
-    const apiUrl = 'https://api.openai.com/v1/chat/completions';
+    const apiUrl = 'https://ai.samay15jan.xyz/';
   
-    const input = document.getElementById('area').value;
-  
-    const requestBody = {
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'system', content: 'You Elena, an ai assistant who helps users by providing solutions for everyday problems and dont autocomplete inputs.' }, { role: 'user', content: input }],
-      temperature: 0.5,
-      max_tokens: 300,
-      top_p: 1,
-      frequency_penalty: 0.0,
-      presence_penalty: 0.6,
-    };
-  
+    const inputBody = document.getElementById('area').value;
+    
+    // Api call to cloudflare AI worker. Check ai-workers for the workers code.
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
       },
-      body: JSON.stringify(requestBody),
+      body: JSON.stringify({ prompt: inputBody }) 
     });
   
     const data = await response.json();
-    const message = data.choices[0].message.content;
+    const message = data.response;
     var partition = document.getElementById("area");
     let x = document.getElementById("theme");
     if (x.className === 'dark-theme'){

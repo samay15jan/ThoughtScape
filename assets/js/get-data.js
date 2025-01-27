@@ -1,7 +1,3 @@
-function off() {
-  document.getElementById("overlay").style.display = "none";
-}
-
 var firebaseConfig = {
   apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
   authDomain: "thoughtscape.firebaseapp.com",
@@ -10,120 +6,142 @@ var firebaseConfig = {
   storageBucket: "thoughtscape.appspot.com",
   messagingSenderId: "446236101890",
   appId: "1:446236101890:web:496f25d21ea3703cf0861b",
-  measurementId: "G-VHY3SZK6FN"
+  measurementId: "G-VHY3SZK6FN",
 };
 
 firebase.initializeApp(firebaseConfig);
-
-function realtimeDatabase(){
-  const userId = localStorage.getItem('userId');
-  if (userId) {
-    const databaseRef = firebase.database().ref('users/' + userId);
-    databaseRef.once('value')
-      .then((snapshot) => {
-        const current_user_email = snapshot.val().email;
-        const current_user_key = snapshot.val().encrypt_key;
-        const current_user_username = snapshot.val().username;
-        localStorage.setItem('email', current_user_email);
-        localStorage.setItem('key', current_user_key);
-        localStorage.setItem('username', current_user_username);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-    });
-} else {
-  console.error("User not authenticated.");
-}};
-
-realtimeDatabase();
-
-
+var realtimeDB = firebase.database();
 var db = firebase.firestore();
-const email = localStorage.getItem('email');
-function getData() {
-  db.collection("Entries")
-    .doc(email)
-    .collection("Journal")
-    .orderBy("D_Date", "desc")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const entryData = doc.data();
-        var encryptedTitle= entryData.A_Title;
-        var encryptedContent = entryData.B_Content;
-        const key = localStorage.getItem('key');
-        
-        // Function to decrypt data using AES
-        function decryptData(data, key) {
-          const decryptedData = CryptoJS.AES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
-          return decryptedData;
-        }
-        const decryptedTitle = decryptData(encryptedTitle, key);
-        const decryptedContent = decryptData(encryptedContent, key);
 
-        var A_title = decryptedTitle;
-        var content = decryptedContent;
-        var B_content = content.slice(0,200) + ".....read more";
-        var D_date = entryData.D_Date;
-      
-        var titleElement = document.createElement("H4");
-        titleElement.textContent = A_title;
-        titleElement.className = "font-medium";
+getFirestoreDB();
 
-        var contentElement = document.createElement("p");
-        contentElement.textContent = B_content;
-        contentElement.className = "text-sm";
+// Get Firestore Data
+async function getFirestoreDB() {
+  try {
+    const decryptedEntries = [];
 
-        var dateElement = document.createElement("H4");
-        dateElement.textContent = D_date;
+    const cachedResRealtime = await getFromIndexDB("responses", "realtime");
+    const email = cachedResRealtime.data.email;
+    const key = cachedResRealtime.data.encrypt_key;
+    if (!email) return;
 
-        var dateCard = document.createElement("div");
-        dateCard.className = "card";        
-        dateCard.appendChild(dateElement);
+    const querySnapshot = await db
+      .collection("Entries")
+      .doc(email)
+      .collection("Journal")
+      .orderBy("D_Date", "desc")
+      .get();
 
-        var containerLeft = document.createElement("div");
-        containerLeft.appendChild(dateCard);
-
-        var containerRight = document.createElement("div");
-        containerRight.appendChild(titleElement);
-        containerRight.appendChild(contentElement);
-
-
-        var parentElement = document.createElement("div");
-        parentElement.className = "content drop-shadow-lg";
-        parentElement.style = "margin: 20px";
-        parentElement.appendChild(containerLeft);
-        parentElement.appendChild(containerRight);
-        parentElement.onclick =function on() {
-            var overlay = document.getElementById("overlay");
-            overlay.style.display = "block";
-            var expand = document.getElementById("text");
-            expand.textContent = content;
-            expand.className = "content-overlay text-lg mx-10 my-5";
-          };
-
-        var finalparentElement = document.getElementById("titles-container");
-        finalparentElement.className = "parent-content animate-3";
-        finalparentElement.appendChild(parentElement);      
-      });
-    })
-    .catch(function(error) {
-      console.error("Error getting documents: ", error);
-    });
+    for (const doc of querySnapshot.docs) {
+      const entryData = doc.data();
+      const decryptedEntry = await handleDecryption(entryData, key);
+      decryptedEntries.push(decryptedEntry);
+    }
+    
+    formatEntries(decryptedEntries);
+  } catch (error) {
+    console.error("Error getting documents from Firebase:", error);
+  }
 }
-getData();
+
+// Format Entries to HTML (DOM Manipulation)
+async function formatEntries(entries) {
+  if (!entries) return;
+
+  entries.forEach((entry) => {
+    const A_title = entry.A_title;
+    const B_content = entry.B_content;
+    const B_content_short = B_content.slice(0, 200) + ".....read more";
+    const D_date = entry.D_date;
+
+    // Create HTML elements
+    const titleElement = document.createElement("H4");
+    titleElement.textContent = A_title;
+    titleElement.className = "font-medium";
+
+    const contentElement = document.createElement("p");
+    contentElement.textContent = B_content_short;
+    contentElement.className = "text-sm";
+
+    const dateElement = document.createElement("H4");
+    const dateObject = new Date(D_date);
+    const options = { day: "numeric", month: "short" };
+    const formattedDate = dateObject.toLocaleDateString("en-US", options);
+    dateElement.textContent = formattedDate;
+
+    const dateCard = document.createElement("div");
+    dateCard.className = "card";
+    dateCard.appendChild(dateElement);
+
+    const containerLeft = document.createElement("div");
+    containerLeft.appendChild(dateCard);
+
+    const containerRight = document.createElement("div");
+    containerRight.appendChild(titleElement);
+    containerRight.appendChild(contentElement);
+
+    const parentElement = document.createElement("div");
+    parentElement.className = "content drop-shadow-lg";
+    parentElement.style = "margin: 20px";
+    parentElement.appendChild(containerLeft);
+    parentElement.appendChild(containerRight);
+
+    parentElement.onclick = function on() {
+      const overlay = document.getElementById("overlay");
+      overlay.style.display = "block";
+      const expand = document.getElementById("text");
+      expand.textContent = B_content;
+      expand.className = "content-overlay text-lg mx-10 my-5";
+    };
+
+    const finalParentElement = document.getElementById("titles-container");
+    finalParentElement.className = "parent-content animate-3";
+    finalParentElement.appendChild(parentElement);
+  });
+}
+
+// Handle Entries Decryption
+async function handleDecryption(entryData, key) {
+  if (!entryData && !key) return;
+
+  const decryptedTitle = CryptoJS.AES.decrypt(entryData.A_Title, key).toString(
+    CryptoJS.enc.Utf8
+  );
+  const decryptedContent = CryptoJS.AES.decrypt(
+    entryData.B_Content,
+    key
+  ).toString(CryptoJS.enc.Utf8);
+  const date = entryData.D_Date;
+
+  const decryptedData = {
+    A_title: decryptedTitle,
+    B_content: decryptedContent,
+    D_date: date,
+  };
+  return decryptedData;
+}
 
 // Greetings
-var greetings = document.getElementById("greet");
-var UserName = localStorage.getItem('username');
-var time = new Date();
-var hours = time.getHours();
-if (hours >= 0 && hours < 12){
-  greetings.innerHTML = 'Good Morning, ' + UserName;
+async function greet() {
+  var greetings = document.getElementById("greet");
+  const cachedResponse = await getFromIndexDB("responses", "realtime");
+  const userName = cachedResponse.data.username;
+
+  var time = new Date();
+  var hours = time.getHours();
+  if (hours >= 0 && hours < 12) {
+    greetings.innerHTML = "Good Morning, " + userName;
+  } else if (hours >= 12 && hours < 18) {
+    greetings.innerHTML = "Good Afternoon, " + userName;
+  } else {
+    greetings.innerHTML = "Good Evening, " + userName;
+  }
 }
-else if (hours >= 12 && hours < 18){
-  greetings.innerHTML = 'Good Afternoon, ' + UserName;
-}
-else {
-  greetings.innerHTML = 'Good Evening, ' + UserName;
+
+document.addEventListener("DOMContentLoaded", function () {
+  greet();
+});
+
+function off() {
+  document.getElementById("overlay").style.display = "none";
 }

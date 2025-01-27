@@ -1,53 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThoughtScape</title>
-  <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-  <script src="/assets/js/check.js"></script>
-  <link rel="stylesheet" href="/assets/css/common.css">
-  <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <link rel="stylesheet" href="/assets/css/journal.css">
-  <link href="/assets/css/output.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-</head>
-<body id="theme" class="light-theme" > 
-    <div class="animate-1 container flex flex-rows w-auto h-auto place-content-center p-5 pt-3">
-      <p class="bg-white p-2 drop-shadow-lg text-center rounded-full" id="quote">Quote</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThoughtScape</title>
+    <link rel="icon" href="/assets/images/logo.png" type="image/icon type" />
+    <link rel="manifest" href="manifest.json" />
+    <script src="/assets/js/check.js"></script>
+    <link rel="stylesheet" href="/assets/css/common.css" />
+    <script
+      src="https://kit.fontawesome.com/38055e6d9a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <link rel="stylesheet" href="/assets/css/journal.css" />
+    <link href="/assets/css/output.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/idb@7.0.0/build/umd.js"></script>
+    <script src="/assets/js/indexedDB.js"></script>
+  </head>
+  <body id="theme" class="light-theme">
+    <div
+      class="animate-1 container flex flex-rows w-auto h-auto place-content-center p-5 pt-3"
+    >
+      <p
+        class="bg-white p-2 drop-shadow-lg text-center rounded-full"
+        id="quote"
+      >
+        Quote
+      </p>
     </div>
 
-<div class="animate-2" >
-<H2 class="pl-2 pt-5 text-2xl lg:ml-64 font-bold">Journal</H2>
-<p class="p-2 lg:ml-64 font-medium" id="greet"></p>
-</div>
-<center>
-  <div id="titles-container"></div>
-</center>
-
-
-<div id="overlay"><br>
-  <button class="exit-button"  onclick="off()"><i class="fa-solid fa-circle-xmark fa-2xl pl-1 pt-10 lg:pl-52" style="color: #fffffe;"></i></button>
-  <center>
-    <div class="text-container">
-      <div id="text"></div>
+    <div class="animate-2">
+      <h2 class="pl-2 pt-5 text-2xl lg:ml-64 font-bold">Journal</h2>
+      <p class="p-2 lg:ml-64 font-medium" id="greet"></p>
     </div>
-</center>
-</div>
-<div class="container flex place-content-center text-base text-slate-700 pb-5" > -x-x-x- </div>
+    <center>
+      <div id="titles-container"></div>
+    </center>
 
-<script src="/assets/js/get-data.js"></script>
-<script src="/assets/js/common.js"></script>
-<script src="/assets/js/transition.js"></script>
-</body>
+    <div id="overlay">
+      <br />
+      <button class="exit-button" onclick="off()">
+        <i
+          class="fa-solid fa-circle-xmark fa-2xl pl-1 pt-10 lg:pl-52"
+          style="color: #fffffe"
+        ></i>
+      </button>
+      <center>
+        <div class="text-container">
+          <div id="text"></div>
+        </div>
+      </center>
+    </div>
+    <div
+      class="container flex place-content-center text-base text-slate-700 pb-5"
+    >
+      -x-x-x-
+    </div>
+
+    <script src="/assets/js/get-data.js"></script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/transition.js"></script>
+  </body>
 </html>

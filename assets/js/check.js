@@ -1,4 +1,4 @@
-  // Firebase Initialization
+// Firebase Initialization
 var firebaseConfig = {
     apiKey: "AIzaSyDead-k6wjCzNLi4gVS9VL4whIIxgexNr8",
     authDomain: "thoughtscape.firebaseapp.com",

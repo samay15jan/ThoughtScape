@@ -1,48 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThoughtScape</title> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThoughtScape</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
-    <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/settings.css">
-    <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="/assets/images/logo.png" type="image/icon type" />
+    <link rel="stylesheet" href="/assets/css/common.css" />
+    <link rel="stylesheet" href="/assets/css/settings.css" />
+    <script
+      src="https://kit.fontawesome.com/38055e6d9a.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <link href="/assets/css/output.css" rel="stylesheet">
-</head>
-<body id="theme" class="light-theme overflow-x-hidden" >
-  <div class="container flex flex-rows w-auto h-auto place-content-center p-5 pt-3">
-    <p class="bg-white p-2 drop-shadow-lg text-center rounded-full" id="quote">Quote</p>
-  </div>  
-  <div class=" ml-2 pt-5 text-2xl lg:ml-64 font-bold">Settings</div>     
-  <div class=" ml-2 pt-5 pb-2 text-xl lg:ml-64 font-medium"> Your Account</div>     
-  <div class=" ml-5 text-base lg:ml-72" id="usernameLoc"></div>     
-  <div class=" ml-5 text-base lg:ml-72" id="email"></div>
-  <div class=" ml-5 text-base lg:ml-72 mb-3" id="count"></div>
-  <button class="bg-white text-red-700 rounded-lg drop-shadow-lg px-3 py-1 ml-5 text-base lg:ml-72 hover:bg-red-200" onclick="logout()">Logout</button>
-  <div class=" ml-2 pt-5 pb-2 text-xl lg:ml-64 font-medium">Feedback and Support</div>     
-    <form class="pb-10" method="post" onsubmit="sendmail(); reset(); return false">
-      <textarea id="inputBox" class="lg:ml-72 ml-5 rounded-xl drop-shadow-lg" placeholder="How can we help you?" cols="50" rows="5" spellcheck="false" required></textarea><br>
-      <button class="bg-white text-slate-700 rounded-xl drop-shadow-lg px-3 py-1 ml-5 lg:ml-72 hover:bg-slate-200" type="submit"><i class="fa-solid fa-paper-plane fa-xl"></i></button>
+    <link href="/assets/css/output.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/idb@7.0.0/build/umd.js"></script>
+    <script src="/assets/js/indexedDB.js"></script>
+  </head>
+  <body id="theme" class="light-theme overflow-x-hidden">
+    <div
+      class="container flex flex-rows w-auto h-auto place-content-center p-5 pt-3"
+    >
+      <p
+        class="bg-white p-2 drop-shadow-lg text-center rounded-full"
+        id="quote"
+      >
+        Quote
+      </p>
+    </div>
+    <div class="ml-2 pt-5 text-2xl lg:ml-64 font-bold">Settings</div>
+    <div class="ml-2 pt-5 pb-2 text-xl lg:ml-64 font-medium">Your Account</div>
+    <div class="ml-5 text-base lg:ml-72" id="usernameLoc"></div>
+    <div class="ml-5 text-base lg:ml-72" id="email"></div>
+    <div class="ml-5 text-base lg:ml-72 mb-3" id="count"></div>
+    <button
+      class="bg-white text-red-700 rounded-lg drop-shadow-lg px-3 py-1 ml-5 text-base lg:ml-72 hover:bg-red-200"
+      onclick="logout()"
+    >
+      Logout
+    </button>
+    <div class="ml-2 pt-5 pb-2 text-xl lg:ml-64 font-medium">
+      Feedback and Support
+    </div>
+    <form
+      class="pb-10"
+      method="post"
+      onsubmit="sendmail(); reset(); return false"
+    >
+      <textarea
+        id="inputBox"
+        class="lg:ml-72 ml-5 rounded-xl drop-shadow-lg"
+        placeholder="How can we help you?"
+        cols="50"
+        rows="5"
+        spellcheck="false"
+        required
+      ></textarea
+      ><br />
+      <button
+        class="bg-white text-slate-700 rounded-xl drop-shadow-lg px-3 py-1 ml-5 lg:ml-72 hover:bg-slate-200"
+        type="submit"
+      >
+        <i class="fa-solid fa-paper-plane fa-xl"></i>
+      </button>
       <div class="ml-5 lg:ml-72" id="result"></div>
     </form>
-  <div class="container flex flex-rows justify-center place-content-center text-xs lg:mx-10 mb-5 lg:mt-5 text-slate-500">
-  <a class="mr-1 lg:mr-5" href="/pages/other/our-story.html">Our Story</a>
-  <a class="mx-1 lg:mx-5" href="/pages/other/terms.html">Terms of Service</a>
-  <a class="mx-1 lg:mx-5" href="/pages/other/privacy.html">Privacy Policy</a>
-  <a class="mx-1 lg:mx-5" href="/pages/other/data-usage.html">Data Usage</a>
-  <a class="ml-1 lg:ml-5" href="/pages/other/storage-info.html">Storage Information</a>
-  </div>
-  <div class="container flex place-content-center text-base text-slate-700 mt-5 pb-5 mr-3 lg:mr-0 lg:ml-7" > -x-x-x- </div>
+    <div
+      class="container flex flex-rows justify-center place-content-center text-xs lg:mx-10 mb-5 lg:mt-5 text-slate-500"
+    >
+      <a class="mr-1 lg:mr-5" href="/pages/other/our-story.html">Our Story</a>
+      <a class="mx-1 lg:mx-5" href="/pages/other/terms.html"
+        >Terms of Service</a
+      >
+      <a class="mx-1 lg:mx-5" href="/pages/other/privacy.html"
+        >Privacy Policy</a
+      >
+      <a class="mx-1 lg:mx-5" href="/pages/other/data-usage.html">Data Usage</a>
+      <a class="ml-1 lg:ml-5" href="/pages/other/storage-info.html"
+        >Storage Information</a
+      >
+    </div>
+    <div
+      class="container flex place-content-center text-base text-slate-700 mt-5 pb-5 mr-3 lg:mr-0 lg:ml-7"
+    >
+      -x-x-x-
+    </div>
 
-<script src="/assets/js/common.js"></script>
-<script src="/assets/js/settings.js"></script>
-<script src="/assets/js/emails.js"></script>
-
-</body>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/settings.js"></script>
+    <script src="/assets/js/emails.js"></script>
+  </body>
 </html>

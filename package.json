@@ -1,20 +1,18 @@
 {
   "name": "thoughtspace",
   "version": "1.0.0",
-  "description": "",
+  "description": "Private Journaling Platform",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Samay Kumar",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.14",
-    "crypto-js": "^4.1.1",
+    "idb": "^8.0.1",
     "postcss": "^8.4.31",
-    "crypto-js": "^4.2.0",
-    "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3"
   }
 }

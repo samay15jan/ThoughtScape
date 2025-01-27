@@ -1,3 +1,5 @@
+window.sendEmail = sendEmail
+
 const navbar = document.getElementById('nav-bar');
 const navbutton = document.getElementById('nav-button');
 navbutton.addEventListener("click", () =>{

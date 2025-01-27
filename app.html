@@ -1,48 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThoughtScape</title> 
-    <link rel="icon" href="/assets/images/logo.png" type="image/icon type">
-    <link rel="stylesheet" href="/assets/css/common.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThoughtScape</title>
+    <link rel="icon" href="/assets/images/logo.png" type="image/icon type" />
+    <link rel="stylesheet" href="/assets/css/common.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/idb@7.0.0/build/umd.js"></script>
+    <script src="/assets/js/indexedDB.js"></script>
+    <link rel="manifest" href="manifest.json" />
     <script src="/assets/js/check.js"></script>
-    <script src="https://kit.fontawesome.com/38055e6d9a.js" crossorigin="anonymous"></script>
-    <link href="/assets/css/output.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/38055e6d9a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="/assets/css/output.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
   </head>
-<body id="theme" class="light-theme font-serif" style="background-color: #fffffe; background-image: url(/assets/images/bg-light.png);">
-  <div id="boot-logo">
-    <video class="hidden lg:block" autoplay muted loop id="boot-video">
-        <source src="/resources/boot.mp4" type="video/mp4">
-    </video>
-</div>
-      <div class="container hidden lg:block h-auto">
-        <ul class="bg-white flex flex-col justify-between items-center absolute w-48 h-screen font-serif text-gray-500">
-          <a href="/main"><img class="p-10 w-52 " src="/assets/images/logo.png"></a>
-          <li class="pb-8 hover:text-violet-700"><a href="#" onclick="frame('/pages/journal.html')"><i class='fas fa-book' style='font-size:20px;'></i> Journal</a></li>
-          <li class="py-8 hover:text-violet-700"><a href="#" onclick="frame('/pages/chill-zone.html')"><i class="fa-solid fa-couch"2 style='font-size:20px;'></i> Lounge</a></li>
-          <li class="py-8 hover:text-violet-700"><a href="#" onclick="frame('/pages/settings.html')"><i class="fa-solid fa-gear" style='font-size:20px;'></i> Settings</a></li>
-          <span class="text-violet-600 mb-12 text-lg">THOUGHTSCAPE</span>
-        </ul>
-      </div>
-  <div class="container flex flex-col overflow-hidden h-auto lg:ml-24 lg:h-auto">
-  <iframe id="iframe" class="iframe w-10/12 w-screen h-screen pb-14 lg:pb-0" src="/pages/journal.html" allowfullscreen="true" frameborder="0"></iframe>
-</div>
-<div class="container lg:hidden block fixed bottom-0 left-0 w-full ring-inset-2 ring-1">
-  <ul class="bg-white flex flex-row justify-between rounded-lg items-center w-screen font-serif text-gray-500">
-    <li class="p-2 py-3 ml-16 hover:text-violet-700"><a href="#" onclick="frame('/pages/journal.html')"><i class='fas fa-book' style='font-size:30px;'></i> </a></li>
-    <li class="p-2 py-3 hover:text-violet-700"><a href="#" onclick="frame('/pages/chill-zone.html')"><i class="fa-solid fa-couch"2 style='font-size:30px;'></i></a></li>
-    <li class="p-2 py-3 mr-16 hover:text-violet-700"><a href="#" onclick="frame('/pages/settings.html')"><i class="fa-solid fa-gear" style='font-size:30px;'></i></a></li>
-  </ul>
-</div>
-<a href="/entry" class=" float bg-violet-500 hover:bg-violet-800 drop-shadow-2xl ring-inset-2 ring-1"><i class="fa-solid fa-plus"></i></a>
-
-</body>
-<script src="/assets/js/common.js"></script> 
+  <body
+    id="theme"
+    class="light-theme font-serif"
+    style="
+      background-color: #fffffe;
+      background-image: url(/assets/images/bg-light.png);
+    "
+  >
+    <div id="boot-logo">
+      <video class="hidden lg:block" autoplay muted loop id="boot-video">
+        <source src="/resources/boot.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="container hidden lg:block h-auto">
+      <ul
+        class="bg-white flex flex-col justify-between items-center absolute w-48 h-screen font-serif text-gray-500"
+      >
+        <a href="/main"
+          ><img class="p-10 w-52" src="/assets/images/logo.png"
+        /></a>
+        <li class="pb-8 hover:text-violet-700">
+          <a href="#" onclick="frame('/pages/journal.html')"
+            ><i class="fas fa-book" style="font-size: 20px"></i> Journal</a
+          >
+        </li>
+        <li class="py-8 hover:text-violet-700">
+          <a href="#" onclick="frame('/pages/chill-zone.html')"
+            ><i class="fa-solid fa-couch" 2 style="font-size: 20px"></i>
+            Lounge</a
+          >
+        </li>
+        <li class="py-8 hover:text-violet-700">
+          <a href="#" onclick="frame('/pages/settings.html')"
+            ><i class="fa-solid fa-gear" style="font-size: 20px"></i>
+            Settings</a
+          >
+        </li>
+        <span class="text-violet-600 mb-12 text-lg">THOUGHTSCAPE</span>
+      </ul>
+    </div>
+    <div
+      class="container flex flex-col overflow-hidden h-auto lg:ml-24 lg:h-auto"
+    >
+      <iframe
+        id="iframe"
+        class="iframe w-10/12 w-screen h-screen pb-14 lg:pb-0"
+        src="/pages/journal.html"
+        allowfullscreen="true"
+        frameborder="0"
+      ></iframe>
+    </div>
+    <div
+      class="container lg:hidden block fixed bottom-0 left-0 w-full ring-inset-2 ring-1"
+    >
+      <ul
+        class="bg-white flex flex-row justify-between rounded-lg items-center w-screen font-serif text-gray-500"
+      >
+        <li class="p-2 py-3 ml-16 hover:text-violet-700">
+          <a href="#" onclick="frame('/pages/journal.html')"
+            ><i class="fas fa-book" style="font-size: 30px"></i>
+          </a>
+        </li>
+        <li class="p-2 py-3 hover:text-violet-700">
+          <a href="#" onclick="frame('/pages/chill-zone.html')"
+            ><i class="fa-solid fa-couch" 2 style="font-size: 30px"></i
+          ></a>
+        </li>
+        <li class="p-2 py-3 mr-16 hover:text-violet-700">
+          <a href="#" onclick="frame('/pages/settings.html')"
+            ><i class="fa-solid fa-gear" style="font-size: 30px"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+    <a
+      href="/entry"
+      class="float bg-violet-500 hover:bg-violet-800 drop-shadow-2xl ring-inset-2 ring-1"
+      ><i class="fa-solid fa-plus"></i
+    ></a>
+  </body>
+  <script src="/assets/js/common.js"></script>
 </html>
